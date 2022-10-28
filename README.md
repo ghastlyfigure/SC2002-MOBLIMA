@@ -4,9 +4,8 @@
 Basic information about our project
 
 ## Things to Do
-1. UML Diagram
-2. Class & Sequence Diagrams
-3. Documentation
-4. Pseudocode
-5. Actual Codes
-6. add more here...
+1. UML Class Diagram
+2. Documentation
+3. Pseudocode
+4. Actual Codes
+add more here...
