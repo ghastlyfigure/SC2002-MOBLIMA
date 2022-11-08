@@ -14,27 +14,27 @@ public class MovieVerifier {
         	System.out.println("Movie already exists!");
         	isValid = false;
         }
-        else if(isEmptyName(name)) {
+        if(isEmptyName(name)) {
         	System.out.println("Empty movie title!");
         	isValid = false;
         }
-        else if (isEmptySynopsis(synopsis)) {
+        if (isEmptySynopsis(synopsis)) {
         	System.out.println("Empty movie synopsis!");
         	isValid = false;
         }
-        else if (isEmptyRating(rating)) {
+        if (isEmptyRating(rating)) {
         	System.out.println("Empty movie rating!");
         	isValid = false;
         }
-        else if (isNegativeDuration(duration)) {
+        if (isNegativeDuration(duration)) {
         	System.out.println("Movie duration cannot be negative!");
         	isValid = false;
         }
-        else if (isEmptyDirector(director)) {
+        if (isEmptyDirector(director)) {
         	System.out.println("Director cannot be empty!");
         	isValid = false;
         }
-        else if (isEmptyCastList(castList)) {
+        if (isEmptyCastList(castList)) {
         	System.out.println("Cast List cannot have empty names!");
         	isValid = false;
         }

@@ -7,12 +7,12 @@ public class MovieListManager {
 	public void main() {
 		boolean active = true;
 		while(active == true) {
-			System.out.printf("\n\nPlease select option: \n\n" +
+			System.out.printf("\nOption List: \n" +
 					"1. Create Movie Listing\n" +
 					"2. Update Movie Listing\n" +
 					"3. Remove Movie Listing\n" +
 					"4. Return to Main Menu\n\n");
-			System.out.printf("Select option: ");
+			System.out.printf("Please select option: ");
 			int option = InputManager.getInt();
 			switch(option) {
 			case 1:

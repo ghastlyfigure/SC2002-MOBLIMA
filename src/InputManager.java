@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -53,4 +54,21 @@ public class InputManager {
         }
         return date;
     }
+    
+   public static LocalDateTime getDateTime(){
+       LocalDateTime dateTime = null;
+       String input;
+       boolean valid = false;
+       while(valid == false){
+           try{
+               input = sc.nextLine();
+               dateTime = LocalDateTime.parse(input, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+               valid = true;
+           }
+           catch(DateTimeParseException e){
+               System.out.println("Must be of pattern DD/MM/YYYY HH:MM!");
+           }
+       }
+       return dateTime;
+   }
 }

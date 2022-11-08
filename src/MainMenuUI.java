@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class MainMenuUI {
 	public void main() {
 		startSystem();
@@ -33,7 +35,29 @@ public class MainMenuUI {
 	}
 
 	private static void startSystem() {
-		//sets up everything
+		CineplexManager cineplexManager = new CineplexManager();
+		MovieManager movieManager = new MovieManager();
+
+		ArrayList<Cinema> cinemasOne = new ArrayList<>();
+		ArrayList<Cinema> cinemasTwo = new ArrayList<>();
+		ArrayList<Cinema> cinemasThree = new ArrayList<>();
+
+		cinemasOne.add(new Cinema("RTU","RTU",CinemaType.BronzeClass,new SeatList(10,10)));
+		cinemasOne.add(new Cinema("DFK","DFK",CinemaType.BronzeClass,new SeatList(10,10)));
+		cinemasOne.add(new Cinema("TYU","TYU",CinemaType.BronzeClass,new SeatList(10,10)));
+		cinemasTwo.add(new Cinema("XDP","XDP",CinemaType.SilverClass,new SeatList(10,10)));
+		cinemasTwo.add(new Cinema("PUP","PUP",CinemaType.SilverClass,new SeatList(10,10)));
+		cinemasTwo.add(new Cinema("VAL","VAL",CinemaType.SilverClass,new SeatList(10,10)));
+		cinemasThree.add(new Cinema("TIR","TIR", CinemaType.GoldClass, new SeatList(10,10)));
+		cinemasThree.add(new Cinema("EFG","EFG",CinemaType.GoldClass, new SeatList(10,10)));
+		cinemasThree.add(new Cinema("TUT","IUT",CinemaType.GoldClass, new SeatList(10,10)));
+
+		if(cineplexManager.getAllCineplex().size() == 0){
+			System.out.println(cinemasOne.size());
+			cineplexManager.createCineplex("Orchard Movies Cineplex", cinemasOne);
+			cineplexManager.createCineplex("Sentosa Beach Cineplex", cinemasTwo);
+			cineplexManager.createCineplex("Movie Base Cineplex", cinemasThree);
+		}
 	}
 	
 	public static void adminLogin() {
@@ -62,11 +86,12 @@ public class MainMenuUI {
 					System.out.println("Select action: ");
 					switch(InputManager.getInt()) {
 					case 1:
-						MovieListManager movielistmanager = new MovieListManager();
-						movielistmanager.main();
+						MovieListManager movieListManager = new MovieListManager();
+						movieListManager.main();
 						break;
 					case 2:
-						
+						MovieSessionManager movieSessionManager = new MovieSessionManager();
+						movieSessionManager.main();
 						break;
 					case 3:
 						

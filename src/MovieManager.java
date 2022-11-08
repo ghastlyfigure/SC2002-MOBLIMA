@@ -21,6 +21,15 @@ public class MovieManager {
     public final static int review = 10;
     
     public final static String filename = "database/movies.txt";
+    public MovieTimeSlotManager timeslotManager;
+
+    public MovieManager() {
+        this.timeslotManager = new MovieTimeSlotManager();
+    } 
+
+    public MovieManager(MovieTimeSlotManager timeslotManager) {
+        this.timeslotManager = timeslotManager;
+    } 
 	
 	public void createMovie(String name, MovieType type, String synopsis, 
 			                String rating, double duration, LocalDate startDate, 
@@ -59,8 +68,7 @@ public class MovieManager {
     }
 	
 	public ArrayList<Movie> readMovie() {
-        try {
-        	
+        try {  	
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
             ArrayList<Movie> movieListing = (ArrayList<Movie>) in.readObject();
             in.close();
@@ -73,36 +81,36 @@ public class MovieManager {
 	
 	public ArrayList<Movie> readMovieDetail(int choice, Object attribute) {
         ArrayList<Movie> movieListing = readMovie();
-        ArrayList<Movie> tempMovieListing = new ArrayList<Movie>();
+        ArrayList<Movie> newMovieListing = new ArrayList<Movie>();
         for (int i = 0; i < movieListing.size(); i++){
             Movie movie = movieListing.get(i);
 
             switch(choice) {
                 case name:
                     if (movie.getName().equals(attribute))
-                        tempMovieListing.add(movie);
+                        newMovieListing.add(movie);
                     break;
                 case type:
                     if (movie.getType().equals(attribute))
-                        tempMovieListing.add(movie);
+                        newMovieListing.add(movie);
                     break;
                 case rating:
                     if (movie.getRating().equals(attribute))
-                        tempMovieListing.add(movie);
+                    	newMovieListing.add(movie);
                     break;
                 case start_date:
                     if (movie.getStartDate().equals(attribute))
-                        tempMovieListing.add(movie);
+                    	newMovieListing.add(movie);
                     break;
                 case end_date:
                     if (movie.getEndDate().equals(attribute))
-                        tempMovieListing.add(movie);
+                    	newMovieListing.add(movie);
                     break;
                 default:   
                     break;
             }
         }
-        return tempMovieListing;
+        return newMovieListing;
     }
 	
 	public Movie readMovieID(int ID) {
@@ -116,17 +124,16 @@ public class MovieManager {
         return null;
     }
 	
-	public void updateMovie(int choice, int Id, Object newValue) {
+	public void updateMovie(int choice, int movieID, Object newValue) {
         ArrayList<Movie> movieListing = readMovie();
         ArrayList<Movie> newMovieListing = new ArrayList<Movie>();
         int i;
 
-        // Delete Sessions with MovieID equal to MovieID passed in
-        //sessionsCtrl.updateByMovie(col, id, newValue);
+        timeslotManager.updateMovie(choice, movieID, newValue);
                 
         for (i = 0; i < movieListing.size(); i++){
             Movie movie = movieListing.get(i);
-            if (movie.getID() == Id){
+            if (movie.getID() == movieID){
                 switch(choice) {
                     case ID:
                         movie.setID((int)newValue);
@@ -171,13 +178,13 @@ public class MovieManager {
         updateFile(filename, newMovieListing);
     }
 	
-	public void updateFile(String filename, ArrayList<Movie> data){
+	public void updateFile(String filename, ArrayList<Movie> movieList){
         File movieFile = new File(filename);
         if (movieFile.exists()) 
             movieFile.delete();
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-            out.writeObject(data);
+            out.writeObject(movieList);
             out.flush();
             out.close();
         } catch (IOException e) {
@@ -188,9 +195,7 @@ public class MovieManager {
 	public void deleteMovie(int ID) {
         ArrayList<Movie> movieListing = readMovie();
         ArrayList<Movie> updatedListing = new ArrayList<Movie>();
-
-        // Delete Sessions with MovieID equal to MovieID passed in
-        //sessionsCtrl.deleteByMovie(id);
+        timeslotManager.deleteTimeslotByMovie(ID);
         
         for (int i = 0; i < movieListing.size(); i++){
             Movie movie = movieListing.get(i);

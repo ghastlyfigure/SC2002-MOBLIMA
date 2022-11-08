@@ -1,31 +1,27 @@
+import java.io.Serializable;
 
-public class Seat {
+public class Seat implements Serializable{
+	private int ID;
 	private boolean occupied;
-	private String type;
-	private int price;
 	
-	Seat(boolean occupied, String type){
+	Seat(int ID, boolean occupied){
+		this.ID = ID;
 		this.occupied = occupied;
-		this.type = type;
+	}
+	
+	void setSeatID(int ID) {
+		this.ID = ID;
+	}
+	
+	int getSeatID() {
+		return ID;
+	}
+	
+	void setOccupied(boolean occupied) {
+		this.occupied = occupied;
 	}
 	
 	boolean isOccupied() {
 		return occupied;
-	}
-	
-	void setType(String type) {
-		this.type = type;
-	}
-	
-	String getType() {
-		return type;
-	}
-	
-	void setPrice(int price) {
-		this.price = price;
-	}
-	
-	int getPrice() {
-		return price;
 	}
 }
