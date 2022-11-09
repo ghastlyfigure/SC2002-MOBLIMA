@@ -1,5 +1,5 @@
 # SC2002 Object-Oriented Design and Programming
-## Movie Booking and Listing Management Application (MOBLIMA)
+## interfaces.Movie Booking and Listing Management Application (MOBLIMA)
 
 Basic information about our project
 
