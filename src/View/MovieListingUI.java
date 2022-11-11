@@ -42,7 +42,6 @@ public class MovieListingUI {
 		String name, synopsis, rating, director;
 		int type, castNumber, i;
 		double duration;
-		System.out.println();
 		System.out.println("Please key in movie details");
 		System.out.println("|======================================|");
 		System.out.println("Please enter the name of the movie: ");
@@ -56,32 +55,30 @@ public class MovieListingUI {
 		System.out.println("\tPlease select the Movie Type of the Movie: ");
 		type = InputManager.getInt();
 		MovieType movietype;
-		switch(type) {
-		case 1:
-			movietype = MovieType.TwoD;
-			break;
-		case 2:
-			movietype = MovieType.ThreeD;
-			break;
-		case 3:
-			movietype = MovieType.Blockbuster;
-			break;
-		default:
-			System.out.println("Invalid input!\n" 
-						     + "Returning back to main menu\n\n");
-			return;
+
+		switch (type) {
+			case 1 -> movietype = MovieType.TwoD;
+			case 2 -> movietype = MovieType.ThreeD;
+			case 3 -> movietype = MovieType.Blockbuster;
+			default -> {
+				System.out.println("Invalid input!");
+				System.out.println("Returning back to Main Menu");
+				System.out.println("---------------------------");
+				return;
+			}
 		}
 		
 		System.out.println("Please enter movie synopsis: ");
 		synopsis = InputManager.getString();
 
-		System.out.printf("\nList of movie ratings: \n" +
-						   "\tG - General\n" +
-						   "\tPG13 - Parental Guidance 13\n" +
-						   "\tNC16 - No Children Under 16\n" +
-						   "\tM18 - Mature 18\n" +
-						   "\tR21 - Restricted 21\n" +
-						   "\tPlease select the movie rating: ");
+		System.out.println("List of movie ratings: ");
+		System.out.println("\tG    - General");
+		System.out.println("\tPG13 - Parental Guidance 13");
+		System.out.println("\tNC16 - No Children Under 16");
+		System.out.println("\tM18  - Mature 18");
+		System.out.println("\tR21  - Restricted 21");
+		System.out.println();
+		System.out.println("\tPlease select the Movie Rating: ");
 		rating = InputManager.getString();
 
 		System.out.println("Please enter the duration of the movie: ");
