@@ -35,30 +35,26 @@ public class SearchMovieUI {
     						+ "\t4. Exit" + "\n"
     						+ "\tPlease select an option: ");
         switch (choice = InputManager.getInt()) {
-        case 1:
-            searchByTitle();
-            break;
-        case 2:
-            searchByType();
-            break;
-        case 3:
-            displayAll();
-            break;
-        case 4:
-            System.out.println("Returning back to main menu");
-            return;
-        default:
-            System.out.println("Invalid input! Please try again.");
+            case 1 -> searchByTitle();
+            case 2 -> searchByType();
+            case 3 -> displayAll();
+            case 4 -> {
+                System.out.println("Returning back to main menu");
+                return;
+            }
+            default -> System.out.println("Invalid input! Please try again.");
         }
     }
     
     public void searchByType(){
         int i, choice;
-        System.out.println("\nList of movie types:\n" +
-                            "\t1. 2D\n" +
-                            "\t2. 3D\n" +
-                            "\t3. Blockbuster\n");
-        System.out.println("Please select the movie type by entering the number: ");
+        System.out.println();
+        System.out.println("List of movie types:");
+        System.out.println("\t1. 2D");
+        System.out.println("\t1. 3D");
+        System.out.println("\t1. Blockbuster");
+        System.out.println("Please select the Movie Type by entering the number: ");
+
         choice = InputManager.getInt();
         switch(choice){
             case 1:

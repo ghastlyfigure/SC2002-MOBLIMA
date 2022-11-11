@@ -1,12 +1,8 @@
 package View;
 
-
-
-
 import Controller.CineplexManager;
 import Controller.InputManager;
 import Controller.LoginManager;
-import Controller.MovieManager;
 import Model.Cinema;
 import Model.CinemaType;
 import Model.SeatList;
@@ -51,7 +47,7 @@ public class MainMenuUI {
 		CineplexManager cineplexManager = new CineplexManager();
 		LoginManager loginManager = new LoginManager();
 
-		loginManager.createAccount("admin", "123456");
+		loginManager.createAccount("admin", "password");
 
 		ArrayList<Cinema> CathayList = new ArrayList<>();
 		ArrayList<Cinema> ShawList = new ArrayList<>();
@@ -95,32 +91,39 @@ public class MainMenuUI {
 	public static void adminLogin() {
 		LoginUI loginUI = new LoginUI();
 		boolean validLogin = loginUI.main();
-		while(validLogin == true) {
-			System.out.println("\n|=========================================|");
+		while(validLogin) {
+			System.out.println();
+			System.out.println("|=========================================|");
 			System.out.println("|===========|Administrator Mode=|=========|");
-			System.out.println("|=========================================|\n" +
-					"\n\n" +
-					"Option List:\n" +
-					"\t1. Create/Update/Remove movie listing\n" +
-					"\t2. Create/Update/Remove movie session\n" +
-					"\t3. List Top 5 Ranking Movies\n" +
-					"\t4. Configure system settings\n" +
-					"\t5. Log out\n");
-			System.out.print("\tPlease select an option: ");
+			System.out.println("|=========================================|");
+			System.out.println();
+			System.out.println("Option List:");
+			System.out.println();
+			System.out.println("\t1. Create/Update/Remove movie listing");
+			System.out.println("\t2. Create/Update/Remove movie session");
+			System.out.println("\t3. List Top 5 Ranking Movies");
+			System.out.println("\t4. Configure System Settings");
+			System.out.println("\t5. Log out");
+			System.out.println();
+			System.out.println("\tPlease select an option: ");
 			switch (InputManager.getInt()) {
 				case 1:
-					MovieListUI movieListUI = new MovieListUI();
-					movieListUI.main();
+					MovieListingUI movieListingUI = new MovieListingUI();
+					movieListingUI.main();
 					break;
 				case 2:
 					MovieSessionUI movieSessionUI = new MovieSessionUI();
 					movieSessionUI.main();
 					break;
 				case 3:
-					//List top 5 Ranking Movies
+					// TODO: List Top 5 Ranking Movies
+					// List top 5 Ranking Movies
 					break;
 				case 4:
-					//Configure System Settings
+					// display/add/remove holiday, set holiday/weekend charges
+					ConfigureSettingsUI configureSettingsUI = new ConfigureSettingsUI();
+					configureSettingsUI.main();
+
 					break;
 				case 5:
 					validLogin = false;
@@ -135,54 +138,56 @@ public class MainMenuUI {
 	
 	public static void guestLogin() {
 		boolean validLogin = true;
-		while(validLogin == true) {
-			System.out.println("\n|=========================================|");
+		while(validLogin) {
+			System.out.println();
+			System.out.println("|=========================================|");
 			System.out.println("|===============|Guest Mode|==============|");
 			System.out.println("|=========================================|");
-			System.out.print("\n\n"+
-					   "Option List: \n" +
-					   "\t1. Search for movie\n"+
-					   "\t2. View movie details\n"+
-					   "\t3. Check seat availability\n" +
-					   "\t4. Purchase ticket\n" +
-					   "\t5. View booking history\n" +
-					   "\t6. List Top 5 Ranking Movies\n" +
-					   "\t7. Rate Movie\n" +
-					   "\t8. Exit\n\n");
-			System.out.printf("\tPlease select an option: ");
+			System.out.println();
+			System.out.println("Option List:");
+			System.out.println("\t1. Search for Movie");
+			System.out.println("\t2. View Movie Details");
+			System.out.println("\t3. Check seat availability");
+			System.out.println("\t4. Purchase Ticket");
+			System.out.println("\t5. View Booking History");
+			System.out.println("\t6. List Top 5 Ranking Movies");
+			System.out.println("\t7. Rate Movie");
+			System.out.println("\t8. Exit");
+			System.out.println("\tPlease Select an Option: ");
+
 			int choice = InputManager.getInt();
-			switch(choice) {
-				case 1:
+
+			switch (choice) {
+				case 1 -> {
 					SearchMovieUI searchMovieUI = new SearchMovieUI();
 					searchMovieUI.main();
-					break;
-				case 2:
+				}
+				case 2 -> {
 					MovieInfoUI viewMovieDetailUI = new MovieInfoUI();
 					viewMovieDetailUI.main();
-					break;
-				case 3:
+				}
+				case 3 -> {
 					SeatAvailabilityUI seatAvailabilityUI = new SeatAvailabilityUI();
 					seatAvailabilityUI.main();
-					break;
-				case 4:
-					//MakeBookingUI makeBookingUI = new MakeBookingUI();
-					//makeBookingUI.main();
-					break;
-				case 5:
+				}
+				case 4 -> {
+					// TODO: Purchase Ticket UI
+					PurchaseTicketUI purchaseTicketUI = new PurchaseTicketUI();
+					purchaseTicketUI.main();
+				}
+				case 5 -> {
 					BookingHistoryUI bookingHistoryUI = new BookingHistoryUI();
 					bookingHistoryUI.main();
-					break;
-				case 6:
+				}
+				case 6 -> {
 					TopMovieUI topMovieUI = new TopMovieUI();
 					topMovieUI.main();
-					break;
-				case 8:
+				}
+				case 8 -> {
 					validLogin = false;
 					System.out.println("Logged out successfully!");
-					break;
-				default:
-					System.out.println("Invalid option, please try again.");
-					break;
+				}
+				default -> System.out.println("Invalid option, please try again.");
 			}
 					
 		}

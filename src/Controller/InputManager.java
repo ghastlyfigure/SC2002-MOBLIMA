@@ -14,17 +14,17 @@ public class InputManager {
         String input = "";
         boolean valid = false;
         while(valid == false) {
-        	input = sc.nextLine();
-        	if(input.equals("")) {
-        		System.out.println("\nCannot be empty, try again!");
-        	}
-        	else {
-        		valid = true;
-        	}
+            input = sc.nextLine();
+            if(input.equals("")) {
+                System.out.println("\nCannot be empty, try again!");
+            }
+            else {
+                valid = true;
+            }
         }
         return input;
     }
-    
+
     public static int getInt(){
         int input = -1;
         boolean valid = false;
@@ -34,7 +34,23 @@ public class InputManager {
                 valid = true;
             }
             else{
-                System.out.println("Wrong input!");
+                System.out.println("Wrong input! (Not an int)");
+            }
+            sc.nextLine();
+        }
+        return input;
+    }
+
+    public static double getDouble(){
+        double input = -1;
+        boolean valid = false;
+        while(valid == false) {
+            if(sc.hasNextInt() == true){
+                input = sc.nextDouble();
+                valid = true;
+            }
+            else{
+                System.out.println("Wrong input! (Not a double)");
             }
             sc.nextLine();
         }
@@ -43,9 +59,9 @@ public class InputManager {
 
     public static String getEmail(){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                            "[a-zA-Z0-9_+&*-]+)*@" +
-                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                            "A-Z]{2,7}$";
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         String input = "";
         boolean valid = false;
@@ -60,9 +76,9 @@ public class InputManager {
         }
         return input;
     }
-    
+
     public static LocalDate getDate() {
-    	LocalDate date = null;
+        LocalDate date = null;
         String input;
         boolean valid = false;
         while(valid == false){
@@ -77,21 +93,40 @@ public class InputManager {
         }
         return date;
     }
-    
-   public static LocalDateTime getDateTime(){
-       LocalDateTime dateTime = null;
-       String input;
-       boolean valid = false;
-       while(valid == false){
-           try{
-               input = sc.nextLine();
-               dateTime = LocalDateTime.parse(input, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-               valid = true;
-           }
-           catch(DateTimeParseException e){
-               System.out.println("Must be of pattern DD/MM/YYYY HH:MM!");
-           }
-       }
-       return dateTime;
-   }
+
+    public static LocalDateTime getDateTime(){
+        LocalDateTime dateTime = null;
+        String input;
+        boolean valid = false;
+        while(valid == false){
+            try{
+                input = sc.nextLine();
+                dateTime = LocalDateTime.parse(input, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+                valid = true;
+            }
+            catch(DateTimeParseException e){
+                System.out.println("Must be of pattern DD/MM/YYYY HH:MM!");
+            }
+        }
+        return dateTime;
+    }
+
+    public static String getMobileNumber(){
+
+        String mobileNumberFormat = "\\d{8}";
+        String mobileNumber = "";
+        boolean validInput = false;
+        while(!validInput){
+            mobileNumber = sc.nextLine();
+            if(mobileNumber.matches(mobileNumberFormat) && (mobileNumber.startsWith("9")) || (mobileNumber.startsWith("8"))){
+                validInput = true;
+            }
+            else{
+                System.out.println("Must be valid mobile number (8 digits long, starts with either 8 or 9)");
+            }
+        }
+
+        return mobileNumber;
+    }
+
 }

@@ -1,6 +1,6 @@
 package Model;
 
-public enum MovieType {
+public enum MovieType implements TicketCostModifier{
 	TwoD,
 	ThreeD,
 	Blockbuster;

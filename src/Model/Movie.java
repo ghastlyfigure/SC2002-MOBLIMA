@@ -28,12 +28,11 @@ public class Movie implements Serializable{
 		this.type = type;
 		this.synopsis = synopsis;
 		this.rating = rating;
-		this.director = director;
-		this.castList = castList;
 		this.duration = duration;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.director = director;
+		this.castList = castList;
 		this.ratingList = new ArrayList<Rating>();
 	}
 	
@@ -214,13 +213,15 @@ public class Movie implements Serializable{
         if (currentTime.isAfter(endDate))
             return MovieStatus.End_of_Showing;
         else {
-            time = Duration.between(currentTime.atStartOfDay(), 
+			// TODO: what is this bro can explain? the logic seems to be off
+            time = Duration.between(currentTime.atStartOfDay(),
             						endDate.atStartOfDay()).toDays();
             if (time > 7) {
                 return MovieStatus.Coming_Soon;
-            } else if (time <= 7 && time > 0) {
+            } else if (time > 0) {
                 return MovieStatus.Preview;
             } else {
+				 // it doesnt even reach here
                 return MovieStatus.Now_Showing;
             }
         }
