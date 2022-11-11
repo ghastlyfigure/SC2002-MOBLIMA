@@ -5,6 +5,7 @@ package View;
 
 import Controller.CineplexManager;
 import Controller.InputManager;
+import Controller.LoginManager;
 import Controller.MovieManager;
 import Model.Cinema;
 import Model.CinemaType;
@@ -48,7 +49,9 @@ public class MainMenuUI {
 
 	private static void startSystem() {
 		CineplexManager cineplexManager = new CineplexManager();
-		MovieManager movieManager = new MovieManager();
+		LoginManager loginManager = new LoginManager();
+
+		loginManager.createAccount("admin", "123456");
 
 		ArrayList<Cinema> CathayList = new ArrayList<>();
 		ArrayList<Cinema> ShawList = new ArrayList<>();
@@ -90,55 +93,42 @@ public class MainMenuUI {
 	}
 	
 	public static void adminLogin() {
-		boolean validAccount = false;
-		boolean validLogin = false;
-		String username, password;
-		while(validAccount == false) {
-			System.out.print("\nPlease enter username: ");
-			username = InputManager.getString();
-			System.out.print("Please enter password: ");
-			password = InputManager.getString();
-			if(username.equals("admin") && password.equals("123456")) {
-				validAccount = true;
-				validLogin = true;
-				while(validLogin) {
-					System.out.println("\n|=========================================|");
-					System.out.println("|===========|Administrator Mode=|=========|");
-					System.out.println("|=========================================|\n" +
-								"\n\n"+
-							   "Option List:\n" +
-							   "\t1. Create/Update/Remove movie listing\n" +
-							   "\t2. Create/Update/Remove movie session\n" +
-							   "\t3. List Top 5 Ranking Movies\n" +
-							   "\t4. Configure system settings\n" +
-							   "\t5. Log out\n");
-					System.out.print("\tPlease select an option: ");
-					switch(InputManager.getInt()) {
-					case 1:
-						MovieListUI movieListUI = new MovieListUI();
-						movieListUI.main();
-						break;
-					case 2:
-						MovieSessionUI movieSessionUI = new MovieSessionUI();
-						movieSessionUI.main();
-						break;
-					case 3:
-						//List top 5 Ranking Movies
-						break;
-					case 4:
-						//Configure System Settings
-						break;
-					case 5:
-						validLogin = false;
-						System.out.println("Logged out successfully!");
-						System.out.println();
-						System.out.println();
-						break;
-					default:
-						System.out.println("Invalid option, please try again.");
-						break;
-					}
-				}
+		LoginUI loginUI = new LoginUI();
+		boolean validLogin = loginUI.main();
+		while(validLogin == true) {
+			System.out.println("\n|=========================================|");
+			System.out.println("|===========|Administrator Mode=|=========|");
+			System.out.println("|=========================================|\n" +
+					"\n\n" +
+					"Option List:\n" +
+					"\t1. Create/Update/Remove movie listing\n" +
+					"\t2. Create/Update/Remove movie session\n" +
+					"\t3. List Top 5 Ranking Movies\n" +
+					"\t4. Configure system settings\n" +
+					"\t5. Log out\n");
+			System.out.print("\tPlease select an option: ");
+			switch (InputManager.getInt()) {
+				case 1:
+					MovieListUI movieListUI = new MovieListUI();
+					movieListUI.main();
+					break;
+				case 2:
+					MovieSessionUI movieSessionUI = new MovieSessionUI();
+					movieSessionUI.main();
+					break;
+				case 3:
+					//List top 5 Ranking Movies
+					break;
+				case 4:
+					//Configure System Settings
+					break;
+				case 5:
+					validLogin = false;
+					System.out.println("Logged out successfully!\n\n");
+					break;
+				default:
+					System.out.println("Invalid option, please try again.");
+					break;
 			}
 		}
 	}
