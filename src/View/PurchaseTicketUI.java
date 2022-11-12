@@ -73,10 +73,10 @@ public class PurchaseTicketUI {
 
         while(availableCinemas.size() == 0){
             choice = InputManager.getInt();
-            /*else if(choice == 0){
+            if(choice == -1){
                 System.out.println("Returning...");
                 return;
-            }*/
+            }
             if (choice < 0 || choice > cineplexes.size())
                 System.out.println("Invalid Input! Please select again.");
 
@@ -87,6 +87,7 @@ public class PurchaseTicketUI {
                     for(int i = 0; i < cineplexes.size(); i++){
                         System.out.println((i+1) + ". " + cineplexes.get(i).getName());
                     }
+                    System.out.println("Enter -1 to return to Guest Menu");
                 }
             }
         }
@@ -225,7 +226,7 @@ public class PurchaseTicketUI {
         String name = InputManager.getString();
         System.out.print("Enter your Email(username): ");
         String email = InputManager.getEmail();
-        System.out.print("Enter your Mobile number: ");
+        System.out.print("Enter your Mobile Number: ");
         String mobileNumber = InputManager.getMobileNumber();
         Movie movie = selectedSlot.getMovie();
     

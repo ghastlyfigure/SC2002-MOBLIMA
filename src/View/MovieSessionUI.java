@@ -69,7 +69,7 @@ public class MovieSessionUI {
 		
 		System.out.println("\nPlease select a cineplex by entering the corresponding number:");
 		int cineplexChoice = InputManager.getInt();
-		if(cineplexChoice < 1 || cineplexChoice > cineplexList.size()){
+		if (cineplexChoice < 1 || cineplexChoice > cineplexList.size()){
 			System.out.println("Wrong input!");
 		}
 		Cineplex cineplex = cineplexList.get(cineplexChoice - 1);
@@ -160,10 +160,10 @@ public class MovieSessionUI {
 			printCinema(cinemaList.get(i));
 		}
 		
-		System.out.print("Please select session ID to update: ");
+		System.out.print("Please select Timeslot ID to update: ");
 		int timeslotID = InputManager.getInt();
 		if (timeslotManager.getTimeslotByID(timeslotID) == null) {
-			System.out.println("Session iD does not exist!\n" +
+			System.out.println("Session ID does not exist!\n" +
 							   "Returning back to main menu");
 			return;
 		}
@@ -196,7 +196,7 @@ public class MovieSessionUI {
 		case 2:
 			System.out.println("Please enter new date & time: ");
 			LocalDateTime timeslotDate = InputManager.getDateTime();
-			timeslotManager.updateTimeslotByID(MovieTimeSlotManager.ID, timeslotID, timeslotDate);
+			timeslotManager.updateTimeslotByID(MovieTimeSlotManager.timeslot, timeslotID, timeslotDate);
 			break;
 			
 		}
@@ -301,7 +301,8 @@ public class MovieSessionUI {
 							cinema.getCinemaCode() + ")");
 		ArrayList<MovieTimeslot> timeslotList = cinema.getMovieTimeslot();
 		if (timeslotList.size() == 0) {
-			System.out.println("There are no Movie Sessions in this cinema");
+			System.out.println("\t\tThere are no Movie Sessions in this cinema");
+			System.out.println();
 		}
 		for(i = 0; i < timeslotList.size(); i++) {
 			printTimeslot(timeslotList.get(i));

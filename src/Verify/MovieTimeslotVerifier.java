@@ -15,7 +15,7 @@ public class MovieTimeslotVerifier {
     public static boolean isValidSession(String code, Movie movie, LocalDateTime timeslot) {
         LocalDate date = timeslot.toLocalDate();
         LocalTime startTime = timeslot.toLocalTime();
-        LocalTime endTime = startTime.plusMinutes((long) (movie.getDuration()));
+        LocalTime endTime = startTime.plusMinutes((long) (60 * movie.getDuration()));
         int i;
 
         ArrayList<MovieTimeslot> timeslotList = timeslotManager.getAllTimeslotByCinema(code, date);

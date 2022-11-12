@@ -209,6 +209,7 @@ public class MovieTimeSlotManager {
         }
     } 
 
+    // TODO: Debug updateTimeslotByID
     public void updateTimeslotByID(int choice, int ID, Object newValue) {
     	int i, j;
         ArrayList<Cinema> cinemaList  = this.cinemaManager.getAllCinema();

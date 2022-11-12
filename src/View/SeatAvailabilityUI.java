@@ -75,7 +75,7 @@ public class SeatAvailabilityUI {
             }
             for(j = 0; j < movieSlot.size(); j++){
                 // TODO: reformat for readability
-                System.out.println("\t" + "Cinema " + (i+1) + cinema.getCinemaCode() + "\n\t   Movie: " + movieSlot.get(j).getMovie().getName()
+                System.out.println("\t" + "Cinema " + (i+1) + " " + cinema.getCinemaCode() + "\n\t   Movie: " + movieSlot.get(j).getMovie().getName()
                 + "\n\t   Date: " + movieSlot.get(j).getStringTimeSlot());
                 counter++;
             }
