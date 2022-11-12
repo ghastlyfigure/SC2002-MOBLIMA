@@ -29,34 +29,31 @@ public class TopMovieUI {
     }
 
     public void display() {
-        System.out.println("Option List: \n"
-                            + "List Top 5 Movies according to\n"
-                            + "\t1. According to ticket sales\n"
-                            + "\t2. According to ratings\n"
-                            + "3. Go back to main menu\n"
-                            + "Please choose an option: ");
+        System.out.println("Option List: ");
+        System.out.println();
+        System.out.println("List Top 5 Movies According to:");
+        System.out.println("\t1. Ticket Sales");
+        System.out.println("\t2. Ratings");
+        System.out.println("\t3. Return to Main Menu");
+        System.out.println();
+        System.out.println("\tPlease select an option: ");
 
         choice = InputManager.getInt();
         switch (choice) {
-            case 1:
-                listBySales();
-                break;
-            case 2:
-                listByReviews();
-                break;
-            case 3:
-                System.out.println("Returning back to main menu");
-                break;
-            default:
-                System.out.println("Invalid input!\n" +
-                                   "Please try again");
+            case 1 -> listBySales();
+            case 2 -> listByReviews();
+            case 3 -> System.out.println("Returning back to main menu");
+            default -> {
+                System.out.println("Invalid input!");
+                System.out.println("Please try again");
+            }
         }
     }
 
     public void listMovieDetails(Movie movie) {
         System.out.println("Movie ID: " + movie.getID());
         System.out.println("Movie Title: " + movie.getName());
-        System.out.println("Movie Model.Rating: " + movie.getAverageScore());
+        System.out.println("Movie Rating: " + movie.getAverageScore());
     }
 
     public void listByReviews() {

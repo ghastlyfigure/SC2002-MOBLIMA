@@ -29,13 +29,13 @@ public class SeatList implements Serializable{
 					System.out.printf(" ");
 				}
 				if(seatList[i][j].isOccupied()){
-					System.out.printf("X");
+					System.out.printf("X ");
 				}
 				else {
-					System.out.printf("O");
+					System.out.printf("O ");
 				}
-				System.out.printf("\n");
 			}
+			System.out.printf("\n");
 		}
 	}
 	

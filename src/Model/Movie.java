@@ -215,7 +215,7 @@ public class Movie implements Serializable{
         else {
 			// TODO: what is this bro can explain? the logic seems to be off
             time = Duration.between(currentTime.atStartOfDay(),
-            						endDate.atStartOfDay()).toDays();
+            						startDate.atStartOfDay()).toDays();
             if (time > 7) {
                 return MovieStatus.Coming_Soon;
             } else if (time > 0) {

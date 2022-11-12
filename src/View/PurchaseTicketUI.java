@@ -103,7 +103,7 @@ public class PurchaseTicketUI {
         movieName = InputManager.getString();
         ArrayList<Cinema> cineplexCinemas = cinemaManager.getCinemaOfCineplex(cineplexName);
         System.out.println();
-        for(int i = 0; i < availableCinemas.size(); i++){
+        for(int i = 0; i < cineplexCinemas.size(); i++){
 
             cinema = cineplexCinemas.get(i);
             for(int j = 0; j < cinema.getMovieTimeslot().size(); j++){
@@ -226,6 +226,7 @@ public class PurchaseTicketUI {
         transactionManager.createTransaction(name, email, cinemaID, movie, mobileNumber);
     
         System.out.println("Completed transaction successfully!");
+        // TODO: Debug logical error, after transaction completed, message "Do you want to proceed" displays
     }
 }
 

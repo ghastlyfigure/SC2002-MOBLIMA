@@ -31,6 +31,8 @@ public class ConfigureSettingsUI {
         System.out.println("(4) Set Public Holiday Charges");
         System.out.println("(5) Set Weekend Charges");
         System.out.println("(6) Back");
+        System.out.println();
+        System.out.println("Please select an option: ");
 
         switch (choice = InputManager.getInt()) {
             case 1 -> displayHolidayList();

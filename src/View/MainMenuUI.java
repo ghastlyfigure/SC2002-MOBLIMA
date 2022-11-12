@@ -14,30 +14,30 @@ public class MainMenuUI {
 		startSystem();
 
 		boolean exit = false;
-		while (exit == false) {
+		while (!exit) {
 			System.out.println("|======================================|");
 			System.out.println("|=========|Welcome to MOBLIMA|=========|");
-			System.out.println("|======================================|\n" + 
-					"\n\n" +
-					"Option List:\n" +
-					"\t1. Admin Login\n" +
-					"\t2. Guest Login\n" +
-					"\t3. Exit Application\n");
-			System.out.print("\tPlease select an option: ");
-		switch(InputManager.getInt()) {
-			case 1:
-				adminLogin();
-				break;
-			case 2:
-				guestLogin();
-				break;
-			case 3:
-				exit = true;
-				System.out.println("Exiting MOBLIMA");
-				System.out.println("Goodbye!");
-				break;
-			default:
-				System.out.println("Wrong input!");
+			System.out.println("|======================================|");
+			System.out.println();
+			System.out.println("Option List:");
+			System.out.println("\t1. Admin Login");
+			System.out.println("\t2. Guest Login");
+			System.out.println("\t3. Exit MOBLIMA");
+			System.out.println();
+			System.out.println("\tPlease select an option: ");
+
+			switch (InputManager.getInt()) {
+				case 1 -> adminLogin();
+				case 2 -> guestLogin();
+				case 3 -> {
+					exit = true;
+					System.out.println("Exiting MOBLIMA");
+					System.out.println("Goodbye!");
+				}
+				default -> {
+					System.out.println("Wrong input!");
+					System.out.println("Please try again");
+				}
 			}
 			
 		}
@@ -106,32 +106,33 @@ public class MainMenuUI {
 			System.out.println("\t5. Log out");
 			System.out.println();
 			System.out.println("\tPlease select an option: ");
+
 			switch (InputManager.getInt()) {
-				case 1:
+				case 1 -> {
 					MovieListingUI movieListingUI = new MovieListingUI();
 					movieListingUI.main();
-					break;
-				case 2:
+				}
+				case 2 -> {
 					MovieSessionUI movieSessionUI = new MovieSessionUI();
 					movieSessionUI.main();
-					break;
-				case 3:
-					// TODO: List Top 5 Ranking Movies
-					// List top 5 Ranking Movies
-					break;
-				case 4:
-					// display/add/remove holiday, set holiday/weekend charges
+				}
+				case 3 -> {
+					TopMovieUI topMovieUI = new TopMovieUI();
+					topMovieUI.main();
+				}
+				case 4 -> {
+					// Function: display/add/remove holiday, set holiday/weekend charges
 					ConfigureSettingsUI configureSettingsUI = new ConfigureSettingsUI();
 					configureSettingsUI.main();
-
-					break;
-				case 5:
+				}
+				case 5 -> {
 					validLogin = false;
 					System.out.println("Logged out successfully!\n\n");
-					break;
-				default:
-					System.out.println("Invalid option, please try again.");
-					break;
+				}
+				default -> {
+					System.out.println("Invalid option!");
+					System.out.println("Please try again");
+				}
 			}
 		}
 	}
@@ -147,12 +148,13 @@ public class MainMenuUI {
 			System.out.println("Option List:");
 			System.out.println("\t1. Search for Movie");
 			System.out.println("\t2. View Movie Details");
-			System.out.println("\t3. Check seat availability");
+			System.out.println("\t3. Check Seat Availability");
 			System.out.println("\t4. Purchase Ticket");
 			System.out.println("\t5. View Booking History");
 			System.out.println("\t6. List Top 5 Ranking Movies");
 			System.out.println("\t7. Rate Movie");
 			System.out.println("\t8. Exit");
+			System.out.println();
 			System.out.println("\tPlease Select an Option: ");
 
 			int choice = InputManager.getInt();
@@ -171,7 +173,7 @@ public class MainMenuUI {
 					seatAvailabilityUI.main();
 				}
 				case 4 -> {
-					// TODO: Purchase Ticket UI
+					// TODO: debug Purchase Ticket UI
 					PurchaseTicketUI purchaseTicketUI = new PurchaseTicketUI();
 					purchaseTicketUI.main();
 				}

@@ -24,6 +24,7 @@ public class TicketCostManager {
 
         ticketCostMap.put(TicketCostType.Holiday, 12.0);
         ticketCostMap.put(TicketCostType.Normal, 10.0);
+
         ticketCostMap.put(TicketCostType.SeniorCitizen, 6.0);
         ticketCostMap.put(TicketCostType.Student, 8.0);
         ticketCostMap.put(TicketCostType.Weekend, 3.0);

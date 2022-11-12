@@ -6,3 +6,5 @@ public class MOBLIMA {
 		mainMenuUI.main();
 	}
 }
+
+// TODO: "No curr available slots for this cineplex. Choose another what? show menu
