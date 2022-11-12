@@ -185,6 +185,10 @@ public class MainMenuUI {
 					TopMovieUI topMovieUI = new TopMovieUI();
 					topMovieUI.main();
 				}
+				case 7 -> {
+					MovieRateUI movieRateUI = new MovieRateUI();
+					movieRateUI.main();
+				}
 				case 8 -> {
 					validLogin = false;
 					System.out.println("Logged out successfully!");

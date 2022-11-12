@@ -81,10 +81,6 @@ public class TopMovieUI {
         ArrayList<Movie> movieList = movieManager.readMovie();
         movieList.sort(new SortBySales());
 
-        //code is wrong here
-        listMovieDetails(movieList.get(0));
-        System.out.println("debug end");
-
         if (movieList.size() < 5) {
             qty = movieList.size();
         }
@@ -94,8 +90,6 @@ public class TopMovieUI {
         for (i = 0; i < qty; i++) {
             listMovieDetails(movieList.get(i));
         }
-        MovieInfoUI details = new MovieInfoUI();
-        details.main();
     }
 
     class SortByRating implements Comparator<Movie> {
@@ -135,14 +129,14 @@ public class TopMovieUI {
             System.out.println("debug end");
 
             for (int i = 0; i < transList.size(); i++) {
-                if (transList.get(i).getMovie().equals(x)) {
+                if (transList.get(i).getMovie().getName().equals(x.getName())) {
                     x_sales++;
                 }
-                if (transList.get(i).getMovie().equals(y)) {
+                if (transList.get(i).getMovie().getName().equals(y.getName())) {
                     y_sales++;
                 }
             }
-            return x_sales - y_sales;
+            return y_sales - x_sales;
         }
     }
 }

@@ -142,7 +142,7 @@ public class Movie implements Serializable{
 
         String ratingList = "";
         for(i = 0; i < getRatingList().size();i++){
-            ratingList += getRatingList().get(i).toString() + "\n\n";
+            ratingList += getRatingList().get(i).getReview() + "\n";
         }
         
         if(ratingList.equals(""))
@@ -185,7 +185,7 @@ public class Movie implements Serializable{
 				+ "Director: " + getDirector() + "\n"
 				+ "Cast: " + castList + "\n"
 				+ "Overall review rating: " + getAverageScore() + "\n"
-				+ "Reviews: \n\n" + ratingList + "\n";
+				+ "Reviews: \n" + ratingList + "\n";
 
         
         return movieDetail;
