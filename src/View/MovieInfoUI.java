@@ -24,7 +24,7 @@ public class MovieInfoUI {
             return;
         }
         System.out.println("Please enter the ID of the movie to view more details\n" +
-                           "(Enter -1 to return back)");
+                           "(Enter -1 to return to Guest Menu)");
 
         int ID = InputManager.getInt();
         if(ID == -1){

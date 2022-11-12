@@ -19,7 +19,7 @@ public class MovieSessionUI {
 	
 	public void main(){
 		boolean valid = true;
-		while(valid == true) {
+		while(valid) {
 			System.out.print("\nOption List: \n" +
 						     "\t1. Create Movie Session\n" +
 						     "\t2. Update Movie Session\n" +
@@ -149,7 +149,13 @@ public class MovieSessionUI {
 		
 		System.out.println("Cinema List:\n ");
 		ArrayList<Cinema> cinemaList = cineplex.getCinemaList();
-		
+
+		if (cinemaList.size() == 0) {
+			System.out.println("There are no Movie Sessions in this cinema");
+			System.out.println("Returning back to Main Menu");
+			return;
+		}
+
 		for(i = 0; i < cinemaList.size(); i++) {
 			printCinema(cinemaList.get(i));
 		}
@@ -220,14 +226,19 @@ public class MovieSessionUI {
 		Cineplex cineplex = cineplexList.get(cineplexChoice - 1);
 		
 		if (cineplex == null) {
-			System.out.println("Cineplex does not exist!\n" +
-							   "Returning back to main menu");
+			System.out.println("Cineplex does not exist!");
+			System.out.println("Returning back to Main Menu");
 			return;
 		}
 
 		System.out.println("Cinema List:\n ");
 		ArrayList<Cinema> cinemaList = cineplex.getCinemaList();
-		
+
+		if (cinemaList.size() == 0) {
+			System.out.println("There are no Movie Sessions in this cinema");
+			System.out.println("Returning back to Main Menu");
+			return;
+		}
 		for(i = 0; i < cinemaList.size(); i++) {
 			printCinema(cinemaList.get(i));
 		}
@@ -273,7 +284,12 @@ public class MovieSessionUI {
 		}
 		
 		ArrayList<Cinema> cinemaList = cineplex.getCinemaList();
-		
+
+		if (cinemaList.size() == 0){
+			System.out.println("There are no Movie Sessions in this cinema");
+			System.out.println("Returning back to Main Menu");
+			return;
+		}
 		for(i = 0; i < cinemaList.size(); i++) {
 			printCinema(cinemaList.get(i));
 		}
@@ -284,6 +300,9 @@ public class MovieSessionUI {
 		System.out.println("\tCinema: " + cinema.getCinemaName() + " (" +
 							cinema.getCinemaCode() + ")");
 		ArrayList<MovieTimeslot> timeslotList = cinema.getMovieTimeslot();
+		if (timeslotList.size() == 0) {
+			System.out.println("There are no Movie Sessions in this cinema");
+		}
 		for(i = 0; i < timeslotList.size(); i++) {
 			printTimeslot(timeslotList.get(i));
 		}

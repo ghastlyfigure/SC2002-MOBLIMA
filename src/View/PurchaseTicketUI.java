@@ -78,12 +78,16 @@ public class PurchaseTicketUI {
                 return;
             }*/
             if (choice < 0 || choice > cineplexes.size())
-                System.out.println("Invalid input! Enter again.");
+                System.out.println("Invalid Input! Please select again.");
 
             else{
                 availableCinemas = listAvailableSlots(cineplexes.get(choice - 1).getName());
-                if(availableCinemas.size() == 0)
-                    System.out.println("No currently available slots for this cineplex. Choose another.");       
+                if(availableCinemas.size() == 0){
+                    System.out.println("No Currently Available Slots for this Cineplex. Choose another Cineplex.");
+                    for(int i = 0; i < cineplexes.size(); i++){
+                        System.out.println((i+1) + ". " + cineplexes.get(i).getName());
+                    }
+                }
             }
         }
         
@@ -116,7 +120,7 @@ public class PurchaseTicketUI {
                         System.out.println();
                     //}
                     //printedCinemaID = true;
-                    System.out.println("    Date: " + slot.getTimeslot()); 
+                    System.out.println("\tDate: " + slot.getTimeslot());
                     System.out.println();
                     availableCinemas.add(cinema);
 
@@ -132,7 +136,7 @@ public class PurchaseTicketUI {
         
         System.out.println("Select your cinema ID/code: ");
         cinemaID = InputManager.getString();
-        System.out.println("Select viewing date and time (format: dd/mm/yyyy hh:mm): ");
+        System.out.println("Select viewing date and time (Format: DD/MM/YYYY HH:MM): ");
         selectedDateTime = InputManager.getDateTime();
         for(int i = 0; i < cinemaList.size(); i++){
             cinema = cinemaList.get(i);
@@ -217,11 +221,11 @@ public class PurchaseTicketUI {
     }
 
     public void makeTransaction(){
-        System.out.print("Enter your name: ");
+        System.out.print("Enter your Name: ");
         String name = InputManager.getString();
-        System.out.print("Enter your email(username): ");
+        System.out.print("Enter your Email(username): ");
         String email = InputManager.getEmail();
-        System.out.print("Enter your mobile number: ");
+        System.out.print("Enter your Mobile number: ");
         String mobileNumber = InputManager.getMobileNumber();
         Movie movie = selectedSlot.getMovie();
     
