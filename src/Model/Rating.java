@@ -1,48 +1,50 @@
 package Model;
 
-public class Rating {
+import java.io.Serializable;
+
+public class Rating implements Serializable {
 	private String name;
 	private double score;
 	private String review;
 	
-	Rating(String name, double score, String review){
+	public Rating(String name, double score, String review){
 		this.name = name;
 		this.score = score;
 		this.review = review;
 	}
 	
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	
 	
-	String getName() {
+	public String getName() {
 		return name;
 	}
-	
-	void setScore(double score) {
+
+	public void setScore(double score) {
 		this.score = score;
 	}
-	
-	double getScore() {
+
+	public double getScore() {
 		return score;
 	}
-	
-	void setReview(String review) {
+
+	public void setReview(String review) {
 		this.review = review;
 	}
-	
-	String getReview() {
+
+	public String getReview() {
 		return review;
 	}
-	
-	String displayRating() {
+
+	public String displayRating() {
 		return "Name: " + getName() + "\n"
 		     + "Score: " + getScore() + "\n"
 		     + "Review: " + getReview();
 	}
-	   
-	boolean isIdenticalRating(Object unknownObject) {
+
+	public boolean isIdenticalRating(Object unknownObject) {
 	    if (!(unknownObject instanceof Rating)) {
 	        return false;
 	    }

@@ -27,8 +27,8 @@ public class MainMenuUI {
 			System.out.println("\tPlease select an option: ");
 
 			switch (InputManager.getInt()) {
-				case 1 -> adminLogin();
-				case 2 -> guestLogin();
+				case 1 -> adminLoginMenu();
+				case 2 -> guestLoginMenu();
 				case 3 -> {
 					exit = true;
 					System.out.println("Exiting MOBLIMA");
@@ -183,9 +183,9 @@ public class MainMenuUI {
 					TopMovieUI topMovieUI = new TopMovieUI();
 					topMovieUI.main();
 				}
-				// Ratings
 				case 7 -> {
-
+					MovieRateUI movieRateUI = new MovieRateUI();
+					movieRateUI.main();
 				}
 				case 8 -> {
 					validLogin = false;
