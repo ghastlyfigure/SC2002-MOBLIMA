@@ -7,7 +7,6 @@ import Model.Movie;
 import Model.Transaction;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 
@@ -60,7 +59,7 @@ public class TopMovieUI {
     public void listByReviews() {
         int i;
         ArrayList<Movie> movieList = movieManager.readMovie();
-        Collections.sort(movieList, new SortByRating());
+        movieList.sort(new SortByRating());
         int qty = 0;
         if (movieList.size() < 5) {
             qty = movieList.size();
