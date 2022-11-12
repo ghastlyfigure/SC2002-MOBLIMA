@@ -29,9 +29,6 @@ public class SeatAvailabilityUI {
         if(slotsAvailable()){
             printSeatLayout();
         }
-        else{
-            return;
-        }
     }
 
     private boolean slotsAvailable(){

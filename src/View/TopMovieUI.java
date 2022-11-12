@@ -56,6 +56,7 @@ public class TopMovieUI {
         System.out.println("Movie Rating: " + movie.getAverageScore());
     }
 
+    // TODO: Fix Top5 ListByReviews
     public void listByReviews() {
         int i;
         ArrayList<Movie> movieList = movieManager.readMovie();
@@ -74,11 +75,17 @@ public class TopMovieUI {
         details.main();
     }
 
+    // TODO: Fix top5 listBySales
     public void listBySales() {
         int qty = 0;
         int i;
         ArrayList<Movie> movieList = movieManager.readMovie();
-        Collections.sort(movieList, new SortBySales());
+        movieList.sort(new SortBySales());
+
+        //code is wrong here
+        listMovieDetails(movieList.get(0));
+        System.out.println("debug end");
+
         if (movieList.size() < 5) {
             qty = movieList.size();
         }
@@ -121,14 +128,18 @@ public class TopMovieUI {
         public int compare(Movie x, Movie y) {
             int x_sales = 0;
             int y_sales = 0;
-            int i;
             TransactionManager transMgr = new TransactionManager();
             ArrayList<Transaction> transList = transMgr.readAllTransaction();
-            for (i = 0; i < transList.size(); i++) {
-                if (transList.get(i).getMovie() == x) {
+
+            // code is correct here
+            System.out.println(transList.get(0).getMovie().getName());
+            System.out.println("debug end");
+
+            for (int i = 0; i < transList.size(); i++) {
+                if (transList.get(i).getMovie().equals(x)) {
                     x_sales++;
                 }
-                if (transList.get(i).getMovie() == y) {
+                if (transList.get(i).getMovie().equals(y)) {
                     y_sales++;
                 }
             }

@@ -77,7 +77,7 @@ public class CinemaManager {
             Cineplex cineplex = cineplexList.get(i);
             if(cineplex.getName().equals(cineplexName)){
             	for(j = 0; j < cineplex.getCinemaList().size(); j++) {
-            		cinemaList.add(cineplex.getCinemaList().get(i));
+            		cinemaList.add(cineplex.getCinemaList().get(j));
             	}
             }
         }

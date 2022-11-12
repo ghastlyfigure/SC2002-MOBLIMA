@@ -34,7 +34,7 @@ public class BookingHistoryUI {
     public void display(){
         int i;
         String choice;
-        ArrayList<Transaction> transactionList = transactionManager.readTransactionByUsername(email);
+        ArrayList<Transaction> transactionList = transactionManager.readTransactionByEmail(email);
         if(transactionList.isEmpty()){
             System.out.println("Booking history is empty!\n" +
                                 "Would you like to book a ticket now? Enter Y to start a new booking!");

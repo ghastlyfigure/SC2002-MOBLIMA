@@ -48,13 +48,13 @@ public class TransactionManager {
     }
 
 
-    public ArrayList<Transaction> readTransactionByUsername(String username) {
+    public ArrayList<Transaction> readTransactionByEmail(String email) {
         int i;
         ArrayList<Transaction> transactionList = readAllTransaction();
         ArrayList<Transaction> newTransactionList = new ArrayList<Transaction>();
 
         for (i = 0; i < transactionList.size(); i++){
-            if (username == transactionList.get(i).getEmail()) //
+            if (email.equals(transactionList.get(i).getEmail())) //
                 newTransactionList.add(transactionList.get(i));
         }
         return newTransactionList;
