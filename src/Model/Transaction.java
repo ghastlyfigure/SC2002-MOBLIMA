@@ -38,10 +38,10 @@ public class Transaction implements Serializable {
         return mobileNumber;
     }
 
-    public String toString(){
-        return "Model.Transaction ID: " + getTransactionID() + "\t"
+    public String toString() {
+        return "Transaction ID: " + getTransactionID() + "\t"
                 + "Name: " + getPersonName() + "\n"
-                + "Model.Movie: " + getMovie().getName() + "\n"
-                + "Mobile number: " + getMobileNumber() + "\n";
+                + "Movie Title: " + getMovie().getName() + "\n"
+                + "Mobile Number: " + getMobileNumber() + "\n";
     }
 }

@@ -178,13 +178,13 @@ public class Movie implements Serializable{
 				break;
 		}
 		movieDetail = movieDetail + "Synopsis: " + getSynopsis() + "\n"
-				+ "Model.Rating: " + getRating() + "\n"
+				+ "Movie Rating: " + getRating() + "\n"
 				+ "Duration: " + String.valueOf(getDuration()) + " hour(s)\n"
-				+ "Release date: " +  getStringStartDate() + "\n"
-				+ "End date: " +  getStringEndDate() + "\n"
+				+ "Release Date: " +  getStringStartDate() + "\n"
+				+ "End Date: " +  getStringEndDate() + "\n"
 				+ "Director: " + getDirector() + "\n"
 				+ "Cast: " + castList + "\n"
-				+ "Overall review rating: " + getAverageScore() + "\n"
+				+ "Overall Review Rating: " + getAverageScore() + "\n"
 				+ "Reviews: \n\n" + ratingList + "\n";
 
         

@@ -117,7 +117,7 @@ public class PurchaseTicketUI {
                     //if(!printedCinemaID) {
                         System.out.println("Cinema ID: " + cinema.getCinemaCode() + "   Cinema type: " + cinema.getCinemaType());
                         System.out.println();
-                        System.out.println("Available time slots for " + movieName + " at this cinema:");
+                        System.out.println("Available time slots for -" + movieName + "- at this Cinema:");
                         System.out.println();
                     //}
                     //printedCinemaID = true;
@@ -135,7 +135,7 @@ public class PurchaseTicketUI {
         MovieTimeslot slot;
         Cinema cinema;
         
-        System.out.println("Select your cinema ID/code: ");
+        System.out.println("Select your Cinema ID/code (eg. AMK, CAU): ");
         cinemaID = InputManager.getString();
         System.out.println("Select viewing date and time (Format: DD/MM/YYYY HH:MM): ");
         selectedDateTime = InputManager.getDateTime();

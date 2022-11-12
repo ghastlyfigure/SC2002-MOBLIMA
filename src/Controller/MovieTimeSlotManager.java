@@ -52,7 +52,7 @@ public class MovieTimeSlotManager {
                     break;
                 }
             }
-            System.out.println("Model.Movie Session created successfully!");
+            System.out.println("Movie Session created successfully!");
         }
     }
     

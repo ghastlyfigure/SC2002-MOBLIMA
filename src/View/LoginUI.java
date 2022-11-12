@@ -18,15 +18,18 @@ public class LoginUI {
         boolean exit = false;
         int choice;
 
-        while(exit == false){
+        while(!exit){
             validLogin = verifyLogin();
             if(!validLogin){
-                System.out.println("\nInvalid username or password!" +
-                                   "\t1. Enter again" +
-                                   "\t2. Exit");
+                System.out.println();
+                System.out.println("Invalid username or password!");
+                System.out.println("\t1. Enter Again");
+                System.out.println("\t2. Exit");
+                System.out.println("\tPlease select an option: ");
                 choice = InputManager.getInt();
                 if(choice == 2){
                     exit = true;
+                    System.out.println("Exiting...");
                 }
             }
             else{

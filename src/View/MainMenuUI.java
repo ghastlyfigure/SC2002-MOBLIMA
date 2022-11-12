@@ -20,8 +20,8 @@ public class MainMenuUI {
 			System.out.println("|======================================|");
 			System.out.println();
 			System.out.println("Option List:");
-			System.out.println("\t1. Admin Login");
-			System.out.println("\t2. Guest Login");
+			System.out.println("\t1. Admin Login/Registration");
+			System.out.println("\t2. Movie-Goer Login");
 			System.out.println("\t3. Exit MOBLIMA");
 			System.out.println();
 			System.out.println("\tPlease select an option: ");
@@ -46,8 +46,6 @@ public class MainMenuUI {
 	private static void startSystem() {
 		CineplexManager cineplexManager = new CineplexManager();
 		LoginManager loginManager = new LoginManager();
-
-		loginManager.createAccount("admin", "password");
 
 		ArrayList<Cinema> CathayList = new ArrayList<>();
 		ArrayList<Cinema> ShawList = new ArrayList<>();
@@ -88,7 +86,7 @@ public class MainMenuUI {
 
 	}
 	
-	public static void adminLogin() {
+	public static void adminLoginMenu() {
 		LoginUI loginUI = new LoginUI();
 		boolean validLogin = loginUI.main();
 		while(validLogin) {
@@ -99,8 +97,8 @@ public class MainMenuUI {
 			System.out.println();
 			System.out.println("Option List:");
 			System.out.println();
-			System.out.println("\t1. Create/Update/Remove movie listing");
-			System.out.println("\t2. Create/Update/Remove movie session");
+			System.out.println("\t1. Create/Update/View/Remove movie listing");
+			System.out.println("\t2. Create/Update/View/Remove movie session");
 			System.out.println("\t3. List Top 5 Ranking Movies");
 			System.out.println("\t4. Configure System Settings");
 			System.out.println("\t5. Log out");
@@ -137,9 +135,9 @@ public class MainMenuUI {
 		}
 	}
 	
-	public static void guestLogin() {
+	public static void guestLoginMenu() {
 		boolean validLogin = true;
-		while(validLogin) {
+		while (validLogin) {
 			System.out.println();
 			System.out.println("|=========================================|");
 			System.out.println("|===============|Guest Mode|==============|");
@@ -185,13 +183,72 @@ public class MainMenuUI {
 					TopMovieUI topMovieUI = new TopMovieUI();
 					topMovieUI.main();
 				}
+				// Ratings
+				case 7 -> {
+
+				}
 				case 8 -> {
 					validLogin = false;
 					System.out.println("Logged out successfully!");
 				}
 				default -> System.out.println("Invalid option, please try again.");
 			}
-					
+
+		}
+	}
+
+	public static void adminRegistrationMenu() {
+		System.out.println("Option List:");
+		System.out.println("\t1. Register new Admin account");
+		System.out.println("\t2. Login as Admin");
+		switch (InputManager.getInt()) {
+			case 1 -> {
+				boolean isUsernameTaken = true;
+				boolean isPasswordSame = false;
+				LoginManager loginManager = new LoginManager();
+				ArrayList<Admin> adminList = loginManager.read();
+				String username = "";
+
+				// to display all saved username and passwords
+//				for (Admin a : adminList) {
+//					System.out.println(a.getUsername() + " " + a.getPassword());
+//				}
+
+				while (isUsernameTaken) {
+					boolean usernameMatch = false;
+					System.out.println("Please enter your username");
+					String usernameInput = InputManager.getString();
+
+					for (Admin a : adminList) {
+						if (a.getUsername().equals(usernameInput)) {
+							usernameMatch = true;
+							System.out.println("Username is already taken!");
+							break;
+						}
+					}
+
+					if (!usernameMatch) {
+						isUsernameTaken = false;
+						username = usernameInput;
+					}
+				}
+
+				while (!isPasswordSame) {
+					System.out.println("Please enter your password");
+					String confirmation1 = InputManager.getString();
+					System.out.println("Please enter your password again");
+					String confirmation2 = InputManager.getString();
+					if(confirmation1.equals(confirmation2)){
+						isPasswordSame = true;
+						loginManager.createAccount(username, confirmation2);
+					}
+				}
+			}
+			case 2 -> adminLoginMenu();
+			default -> {
+				System.out.println("Wrong input!");
+				System.out.println("Please try again");
+			}
 		}
 	}
 }

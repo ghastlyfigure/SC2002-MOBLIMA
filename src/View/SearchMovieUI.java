@@ -97,6 +97,7 @@ public class SearchMovieUI {
     public boolean displayAll(){
         int i;
         ArrayList<Movie> movieListing = movieManager.readMovie();
+        // checks whether movieListing has movies in it
         if(movieListing.isEmpty()){
             System.out.println("No movies to be listed!");
             return false;

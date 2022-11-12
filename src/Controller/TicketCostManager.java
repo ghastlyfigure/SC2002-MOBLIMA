@@ -5,7 +5,6 @@ import Model.*;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: complete missing functions in Ticket Cost Manager, update the cost calculation formula
 public class TicketCostManager {
     private HolidayManager holidayManager;
     private Map<TicketCostModifier,Double> ticketCostMap = new HashMap<>();

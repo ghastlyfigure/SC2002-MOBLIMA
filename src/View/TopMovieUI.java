@@ -68,7 +68,12 @@ public class TopMovieUI {
             qty = 5;
         }
         for (i = 0; i < qty; i++) {
+            System.out.println("==============================================");
+            System.out.println("No." + (i+1) + " most popular movie by Reviews");
+            System.out.println("==============================================");
             listMovieDetails(movieList.get(i));
+            System.out.println("==============================================");
+            System.out.println();
         }
         MovieInfoUI details = new MovieInfoUI();
         details.main();
@@ -81,10 +86,6 @@ public class TopMovieUI {
         ArrayList<Movie> movieList = movieManager.readMovie();
         movieList.sort(new SortBySales());
 
-        //code is wrong here
-        listMovieDetails(movieList.get(0));
-        System.out.println("debug end");
-
         if (movieList.size() < 5) {
             qty = movieList.size();
         }
@@ -92,7 +93,13 @@ public class TopMovieUI {
             qty = 5;
         }
         for (i = 0; i < qty; i++) {
+            System.out.println("===================================================");
+            System.out.println("No." + (i+1) + " most popular movie by Ticket Sales");
+            System.out.println("===================================================");
             listMovieDetails(movieList.get(i));
+            System.out.println("===================================================");
+            System.out.println();
+
         }
         MovieInfoUI details = new MovieInfoUI();
         details.main();
@@ -130,19 +137,15 @@ public class TopMovieUI {
             TransactionManager transMgr = new TransactionManager();
             ArrayList<Transaction> transList = transMgr.readAllTransaction();
 
-            // code is correct here
-            System.out.println(transList.get(0).getMovie().getName());
-            System.out.println("debug end");
-
-            for (int i = 0; i < transList.size(); i++) {
-                if (transList.get(i).getMovie().equals(x)) {
+            for (Transaction transaction : transList) {
+                if (transaction.getMovie().getName().equals(x.getName())) {
                     x_sales++;
                 }
-                if (transList.get(i).getMovie().equals(y)) {
+                if (transaction.getMovie().getName().equals(y.getName())) {
                     y_sales++;
                 }
             }
-            return x_sales - y_sales;
+            return y_sales - x_sales;
         }
     }
 }

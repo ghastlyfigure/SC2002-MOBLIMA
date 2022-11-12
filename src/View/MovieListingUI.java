@@ -49,10 +49,10 @@ public class MovieListingUI {
 
 		System.out.println("List of Available Movie Types: ");
 		System.out.println("\t1. 2D");
-		System.out.println("\t1. 3D");
-		System.out.println("\t1. Blockbuster");
+		System.out.println("\t2. 3D");
+		System.out.println("\t3. Blockbuster");
 		System.out.println();
-		System.out.println("\tPlease select the Movie Type of the Movie: ");
+		System.out.println("\tPlease select the Movie Type of the Movie (1-3): ");
 		type = InputManager.getInt();
 		MovieType movietype;
 

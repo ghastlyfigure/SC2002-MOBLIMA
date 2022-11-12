@@ -14,12 +14,12 @@ import java.util.ArrayList;
 
 public class TransactionManager {
 
-    public final static String filename = "database/transaction.txt";
+    public final static String FILENAME = "database/transaction.txt";
 
     public void createTransaction(String name, String email, String cinemaID, Movie movie, String mobileNumber){
         if(TransactionVerifier.isValidTransaction(name, email, cinemaID, movie, mobileNumber)) {
             ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
-            File transactionFile = new File(filename);
+            File transactionFile = new File(FILENAME);
             if(transactionFile.exists()){
                 transactionList = readAllTransaction();
             }
@@ -62,7 +62,7 @@ public class TransactionManager {
 
     public ArrayList<Transaction> readAllTransaction() {
         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(FILENAME));
             ArrayList<Transaction> transactionList = (ArrayList<Transaction>)in.readObject();
             in.close();
             return transactionList;
@@ -83,7 +83,7 @@ public class TransactionManager {
             newTransactionList.add(transactionList.get(i));
         }
 
-        replaceFile(filename, newTransactionList);
+        replaceFile(FILENAME, newTransactionList);
     }
 
     public void replaceFile(String filename, ArrayList<Transaction> newTransactionList){

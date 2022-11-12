@@ -102,7 +102,7 @@ public class MovieSessionUI {
 			return;
 		}
 		
-		System.out.println("Please select a movie: ");
+		System.out.println("Please select a Movie ID: ");
 	    int movieID = InputManager.getInt();
 	    
 	    if (movieManager.readMovieID(movieID) == null) {
@@ -112,7 +112,7 @@ public class MovieSessionUI {
 		};
 
 
-	    System.out.println("Enter session date and time: ");
+	    System.out.println("Enter session date and time (DD/MM/YYYY HH:MM) : ");
 	    LocalDateTime timeslot = InputManager.getDateTime();
 	    Movie movie = movieManager.readMovieID(movieID);
 	    timeslotManager.createTimeslot(cinema, movie, timeslot);
