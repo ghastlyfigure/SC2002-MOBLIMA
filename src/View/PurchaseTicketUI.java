@@ -179,12 +179,14 @@ public class PurchaseTicketUI {
         }
 
         System.out.println("Total ticket cost: " + cost + "SGD");
+        // TODO: change to do while loop
         int choice = 0;
         while(choice == 0 || choice == 1){
             System.out.println("Do you want to proceed? Yes(1)/No(0): ");
             choice = InputManager.getInt();
             if(choice == 1){
                 bookSeats();
+                break;
             }
             else if(choice == 0){
                 System.out.println("Returning...");

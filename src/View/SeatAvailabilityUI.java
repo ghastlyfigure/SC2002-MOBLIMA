@@ -71,10 +71,11 @@ public class SeatAvailabilityUI {
             Cinema cinema = cinemas.get(i);
             ArrayList<MovieTimeslot> movieSlot = cinema.getMovieTimeslot();
             if(movieSlot.size() == 0){
-                System.out.println("Timeslot list is empty!");
+                System.out.println("\tCinema " + (i+1) + " has no available sessions.");
             }
             for(j = 0; j < movieSlot.size(); j++){
-                System.out.println("\t" + (counter+1) + ". Cinema: " + cinema.getCinemaCode() + "\n\t   Movie: " + movieSlot.get(j).getMovie().getName()
+                // TODO: reformat for readability
+                System.out.println("\t" + "Cinema " + (i+1) + cinema.getCinemaCode() + "\n\t   Movie: " + movieSlot.get(j).getMovie().getName()
                 + "\n\t   Date: " + movieSlot.get(j).getStringTimeSlot());
                 counter++;
             }
@@ -89,10 +90,10 @@ public class SeatAvailabilityUI {
 
     public void printSeatLayout(){
         int choice = 0;
-        System.out.println("Please select movie timeslot: ");
-        System.out.print("Please enter cinema code: ");
+        System.out.println("Select movie timeslot");
+        System.out.println("Please enter cinema code: ");
         String cinemaCode = InputManager.getString();
-        System.out.print("Please enter date: ");
+        System.out.println("Please enter date: ");
         LocalDateTime timeslotDate = InputManager.getDateTime();
 
         MovieTimeslot timeSlot = movieSlotManager.getSpecificTimeslot(cinemaCode, timeslotDate);
