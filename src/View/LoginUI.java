@@ -22,10 +22,12 @@ public class LoginUI {
             validLogin = verifyLogin();
             if(!validLogin){
                 System.out.println();
-                System.out.println("Invalid username or password!");
+                System.out.println("Invalid Username or Password!");
+                System.out.println();
+                System.out.println("Option List:");
                 System.out.println("\t1. Enter Again");
                 System.out.println("\t2. Exit");
-                System.out.println("\tPlease select an option: ");
+                System.out.println("\tPlease select an Option: ");
                 choice = InputManager.getInt();
                 if(choice == 2){
                     exit = true;
