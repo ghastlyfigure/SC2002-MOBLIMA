@@ -70,8 +70,6 @@ public class TopMovieUI {
         for (i = 0; i < qty; i++) {
             listMovieDetails(movieList.get(i));
         }
-        MovieInfoUI details = new MovieInfoUI();
-        details.main();
     }
 
     // TODO: Fix top5 listBySales
