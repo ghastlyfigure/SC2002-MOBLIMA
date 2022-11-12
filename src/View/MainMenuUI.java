@@ -3,6 +3,7 @@ package View;
 import Controller.CineplexManager;
 import Controller.InputManager;
 import Controller.LoginManager;
+import Model.Admin;
 import Model.Cinema;
 import Model.CinemaType;
 import Model.SeatList;
@@ -27,7 +28,7 @@ public class MainMenuUI {
 			System.out.println("\tPlease select an option: ");
 
 			switch (InputManager.getInt()) {
-				case 1 -> adminLoginMenu();
+				case 1 -> adminRegistrationMenu();
 				case 2 -> guestLoginMenu();
 				case 3 -> {
 					exit = true;
