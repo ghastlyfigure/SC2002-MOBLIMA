@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class RatingManager {
 
     /**
-     * The Cineplex Manager to be referenced by this manager, Cinema Manager
+     * The Movie Manager to be referenced by this manager
      */
     private MovieManager movieManager;
 
@@ -18,11 +18,18 @@ public class RatingManager {
      */
     public String filename;
 
+    /**
+     * Default constructor
+     */
     public RatingManager(){
         this.movieManager = new MovieManager();
         this.filename = movieManager.filename;
     }
 
+    /**
+     * Parameterized constructor with Movie Manager
+     * @param movieManager    User-defined Movie Manager is referenced instead
+     */
     public RatingManager(MovieManager movieManager){
         this.movieManager = movieManager;
         this.filename = movieManager.filename;
