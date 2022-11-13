@@ -80,7 +80,7 @@ public class MovieSessionUI {
 			return;
 		}
 		
-		System.out.println("\nModel.Cinema List: ");
+		System.out.println("\nList of Cinemas and their Availability: ");
 		ArrayList<Cinema> cinemaList = cineplex.getCinemaList();
 		
 		for(i = 0; i < cinemaList.size(); i++) {

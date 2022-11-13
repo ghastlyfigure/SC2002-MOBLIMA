@@ -163,17 +163,17 @@ public class Movie implements Serializable{
 				break;
 		}
 
-		switch(getMovieStatus().toString()){
-			case "Coming_Soon":
+		switch(getMovieStatus()){
+			case Coming_Soon:
 				movieDetail = movieDetail + "Status: Coming Soon" + "\n";
 				break;
-			case "Preview":
+			case Preview:
 				movieDetail = movieDetail + "Status: Preview" + "\n";
 				break;
-			case "Now_Showing":
+			case Now_Showing:
 				movieDetail = movieDetail + "Status: Now Showing" + "\n";
 				break;
-			case "End_Of_Showing":
+			case End_of_Showing:
 				movieDetail = movieDetail + "Status: End of Showing" + "\n";
 				break;
 		}

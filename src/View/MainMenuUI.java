@@ -98,13 +98,13 @@ public class MainMenuUI {
 			System.out.println();
 			System.out.println("Option List:");
 			System.out.println();
-			System.out.println("\t1. Create/Update/View/Remove movie listing");
-			System.out.println("\t2. Create/Update/View/Remove movie session");
+			System.out.println("\t1. Create/Update/View/Remove Movie Listing");
+			System.out.println("\t2. Create/Update/View/Remove Movie Session");
 			System.out.println("\t3. List Top 5 Ranking Movies");
 			System.out.println("\t4. Configure System Settings");
 			System.out.println("\t5. Log out");
 			System.out.println();
-			System.out.println("\tPlease select an option: ");
+			System.out.println("\tPlease select an Option: ");
 
 			switch (InputManager.getInt()) {
 				case 1 -> {
@@ -209,11 +209,6 @@ public class MainMenuUI {
 				LoginManager loginManager = new LoginManager();
 				ArrayList<Admin> adminList = loginManager.read();
 				String username = "";
-
-				// to display all saved username and passwords
-//				for (Admin a : adminList) {
-//					System.out.println(a.getUsername() + " " + a.getPassword());
-//				}
 
 				while (isUsernameTaken) {
 					boolean usernameMatch = false;

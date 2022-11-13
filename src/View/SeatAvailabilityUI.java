@@ -87,10 +87,12 @@ public class SeatAvailabilityUI {
 
     public void printSeatLayout(){
         int choice = 0;
-        System.out.println("Select movie timeslot");
-        System.out.println("Please enter cinema code: ");
+        System.out.println("================================================");
+        System.out.println("Select Movie Timeslot to view Booking History");
+        System.out.println("================================================");
+        System.out.println("Please enter Cinema Code (eg. CAU, AMK): ");
         String cinemaCode = InputManager.getString();
-        System.out.println("Please enter date: ");
+        System.out.println("Please enter Date and Time (DD/MM/YYYY HH:MM) : ");
         LocalDateTime timeslotDate = InputManager.getDateTime();
 
         MovieTimeslot timeSlot = movieSlotManager.getSpecificTimeslot(cinemaCode, timeslotDate);
@@ -103,6 +105,15 @@ public class SeatAvailabilityUI {
             System.out.println("Seat Layout: ");
             seatList = timeSlot.getSeatList();
             seatList.printLayout();
+        }
+
+        boolean inLoop = true;
+        while (inLoop) {
+            System.out.println("Please Enter -1 to Return to Previous Menu");
+            int userInput = InputManager.getInt();
+            if (userInput == -1) {
+                inLoop = false;
+            }
         }
     }
     

@@ -69,7 +69,7 @@ public class TopMovieUI {
         }
         for (i = 0; i < qty; i++) {
             System.out.println("==============================================");
-            System.out.println("No." + (i+1) + " most popular movie by Reviews");
+            System.out.println("No." + (i+1) + " Most Popular Movie by Ratings");
             System.out.println("==============================================");
             listMovieDetails(movieList.get(i));
             System.out.println("==============================================");
@@ -94,7 +94,7 @@ public class TopMovieUI {
         }
         for (i = 0; i < qty; i++) {
             System.out.println("===================================================");
-            System.out.println("No." + (i+1) + " most popular movie by Ticket Sales");
+            System.out.println("No." + (i+1) + " Most Popular Movie by Ticket Sales");
             System.out.println("===================================================");
             listMovieDetails(movieList.get(i));
             System.out.println("===================================================");

@@ -54,17 +54,19 @@ public class PurchaseTicketUI {
         ArrayList<Cinema> availableCinemas = new ArrayList<Cinema>();
         int choice;
 
-        System.out.println("Movies streaming now: ");
-        System.out.println();
+        System.out.println("======================");
+        System.out.println("Movies Streaming Now: ");
+        System.out.println("======================");
         ArrayList<Movie> movies = movieManager.readMovie();
         for (Movie movie : movies) {
             if (movie.getMovieStatus() == MovieStatus.Now_Showing || movie.getMovieStatus() == MovieStatus.Preview) {
                 System.out.println(movie.getName());
             }
         }
+        System.out.println("=======================");
         System.out.println();
 
-        System.out.println("Select cineplex: ");
+        System.out.println("Select Cineplex: ");
         System.out.println();
         ArrayList<Cineplex> cineplexes = cineplexManager.getAllCineplex();
         for(int i = 0; i < cineplexes.size(); i++){
@@ -106,6 +108,15 @@ public class PurchaseTicketUI {
         System.out.println();
         System.out.println("Enter movie name to view currently available slots: ");
         movieName = InputManager.getString();
+
+        ArrayList<Movie> movies = movieManager.readMovie();
+        for (Movie movie : movies) {
+            if (movie.getMovieStatus().equals(MovieStatus.Coming_Soon) || movie.getMovieStatus().equals(MovieStatus.End_of_Showing)) {
+                System.out.println("Movie no longer available for booking as it is no longer showing!");
+                return availableCinemas;
+            }
+        }
+
         ArrayList<Cinema> cineplexCinemas = cinemaManager.getCinemaOfCineplex(cineplexName);
         System.out.println();
         for(int i = 0; i < cineplexCinemas.size(); i++){
@@ -115,13 +126,15 @@ public class PurchaseTicketUI {
                 slot = cinema.getMovieTimeslot().get(j);
                 if(slot.getMovie().getName().equals(movieName)){
                     //if(!printedCinemaID) {
-                        System.out.println("Cinema ID: " + cinema.getCinemaCode() + "   Cinema type: " + cinema.getCinemaType());
-                        System.out.println();
-                        System.out.println("Available time slots for -" + movieName + "- at this Cinema:");
-                        System.out.println();
+                    System.out.println("=====================================================");
+                    System.out.println("Cinema ID: " + cinema.getCinemaCode() + "   Cinema type: " + cinema.getCinemaType());
+                    System.out.println();
+                    System.out.println("\tAvailable Time Slots for -" + movieName + "- at this Cinema:");
+                    System.out.println();
                     //}
                     //printedCinemaID = true;
-                    System.out.println("\tDate: " + slot.getTimeslot());
+                    System.out.println("\tDate: " + slot.getTimeslot().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+                    System.out.println("======================================================");
                     System.out.println();
                     availableCinemas.add(cinema);
 
@@ -158,7 +171,7 @@ public class PurchaseTicketUI {
 
     public void showTicketCosts(){
         double cost = 0;
-        System.out.print("Enter the number of tickets: ");
+        System.out.print("Enter the number of Tickets you want to purchase: ");
         tickets = InputManager.getInt();
         for(int i = 0; i < tickets; i++){
             boolean validInput = false;
@@ -210,7 +223,7 @@ public class PurchaseTicketUI {
         seatList.printLayout();
 
         do{
-            System.out.println("Choose seat id for ticket" + c);
+            System.out.println("Choose Seat ID for Ticket " + c);
             seatID = InputManager.getInt();
             seatBooked = movieSlotManager.assignSeat(seatList, seatID, selectedSlot.getTimeslotID());
             if(seatBooked){
@@ -224,7 +237,7 @@ public class PurchaseTicketUI {
     public void makeTransaction(){
         System.out.print("Enter your Name: ");
         String name = InputManager.getString();
-        System.out.print("Enter your Email(username): ");
+        System.out.print("Enter your Email: ");
         String email = InputManager.getEmail();
         System.out.print("Enter your Mobile Number: ");
         String mobileNumber = InputManager.getMobileNumber();

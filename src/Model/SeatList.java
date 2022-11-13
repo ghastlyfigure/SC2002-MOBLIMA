@@ -21,22 +21,31 @@ public class SeatList implements Serializable{
 	public void printLayout( ) {
 		int i, j;
 		int split = column / 2;
-		System.out.printf("\nX = occupied, O = not occupied.\n\n" 
-						+ "Model.Seat List:\n");
+		System.out.println("Seating List of Cinema:");
+		System.out.println("X = occupied, O = not occupied.");
+		System.out.println();
+		// TODO: implement print according to row, col
+		System.out.println("==============================================");
+		System.out.println("SCREEN");
+		System.out.println("==============================================");
 		for (i = 0; i < row; i++) {
 			for(j = 0; j < column; j++) {
 				if(j == column / 2 - 1) {
-					System.out.printf(" ");
+					System.out.print(" ");
 				}
 				if(seatList[i][j].isOccupied()){
-					System.out.printf("X ");
+					System.out.print("X ");
 				}
 				else {
-					System.out.printf("O ");
+					System.out.print("O ");
 				}
 			}
-			System.out.printf("\n");
+			System.out.print("\n");
 		}
+		// implement print according to row, col
+		System.out.println("==============================================");
+		System.out.println("ENTRANCE");
+		System.out.println("==============================================");
 	}
 	
 	void setRow(int row) {

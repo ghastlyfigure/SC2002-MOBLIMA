@@ -44,16 +44,16 @@ public class LoginUI {
     }
     public boolean verifyLogin() {
         String username, password;
-        System.out.println("\nPlease enter username: ");
+        System.out.println();
+        System.out.println("Please enter username: ");
         username = InputManager.getString();
         System.out.println("Please enter password: ");
         password = InputManager.getString();
 
         ArrayList<Admin> adminList = loginManager.read();
         for(int i = 0; i < adminList.size(); i++){
-            if(!username.equals(adminList.get(i).getUsername()) ||
-               !password.equals(adminList.get(i).getPassword())){
-                return false;
+            if(username.equals(adminList.get(i).getUsername()) && password.equals(adminList.get(i).getPassword())){
+                return true;
             }
         }
         return true;

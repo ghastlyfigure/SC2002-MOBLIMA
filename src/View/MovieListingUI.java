@@ -43,7 +43,7 @@ public class MovieListingUI {
 		int type, castNumber, i;
 		double duration;
 		System.out.println("Please key in movie details");
-		System.out.println("|======================================|");
+		System.out.println("======================================");
 		System.out.println("Please enter the name of the movie: ");
 		name = InputManager.getString();
 
