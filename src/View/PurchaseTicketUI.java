@@ -111,7 +111,7 @@ public class PurchaseTicketUI {
         System.out.println("Enter movie name to view currently available slots: ");
         movieName = InputManager.getString();
 
-        ArrayList<Movie> movies = movieManager.readMovie();
+        ArrayList<Movie> movies = movieManager.readMovieDetail(MovieManager.name, movieName);
         for (Movie movie : movies) {
             if (movie.getMovieStatus().equals(MovieStatus.Coming_Soon) || movie.getMovieStatus().equals(MovieStatus.End_of_Showing)) {
                 System.out.println("Movie no longer available for booking as it is No Longer Showing!");

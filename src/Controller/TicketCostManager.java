@@ -22,7 +22,7 @@ public class TicketCostManager {
         ticketCostMap.put(CinemaType.SilverClass, 1.0);
         ticketCostMap.put(CinemaType.GoldClass, 3.0);
         // Holidays, Weekends and Student, Senior Citizen
-        ticketCostMap.put(TicketCostType.Holiday, 12.0);
+        ticketCostMap.put(TicketCostType.Holiday, 4.0);
         ticketCostMap.put(TicketCostType.Normal, 10.0);
         ticketCostMap.put(TicketCostType.SeniorCitizen, 6.0);
         ticketCostMap.put(TicketCostType.Student, 8.0);
@@ -79,6 +79,7 @@ public class TicketCostManager {
                 return cost + getCost(TicketCostType.Holiday);
             }
         }
+        return cost;
     }
 }
 
