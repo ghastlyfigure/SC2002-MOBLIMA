@@ -256,7 +256,7 @@ public class MovieListingUI {
 	public void removeMovie(){
 		SearchMovieUI searchMovie = new SearchMovieUI();
 		System.out.println("Movie List:");
-		
+		searchMovie.displayAll();
 		if(true){
 			System.out.print("Please select the movie to be removed: ");
 			int ID = InputManager.getInt();
@@ -266,6 +266,7 @@ public class MovieListingUI {
 				return;
 			}
 			movieManager.deleteMovie(ID);
+			System.out.println("Movie " + ID + " is removed successfully");
 		}
 		else{
 			System.out.println("Returning back to main menu");
