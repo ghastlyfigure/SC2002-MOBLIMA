@@ -62,7 +62,7 @@ public class SearchMovieUI {
             case 2:
                 type = "ThreeD"; break;
             case 3:
-                type = "Blockbuster";
+                type = "Blockbuster"; break;
         }
         ArrayList<Movie> movieListing = movieManager.readMovieDetail(
         		movieManager.type, type);
