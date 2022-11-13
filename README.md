@@ -1,13 +1,34 @@
 # SC2002 Object-Oriented Design and Programming
+NTU Computer Science Year 2 Group Assignment AY21/22
+Teammates: Andy, Zhen Hui, Nithya, Kaita
+
 ## Movie Booking and Listing Management Application (MOBLIMA)
+A console-based application based off a real-life Movie Website (Cathay Cineplexes) to replicate its functionality
 
-Basic information about our project
+## Index
 
-## Things to Do
-1. UML Class Diagram
-2. Documentation
-3. Pseudocode
-4. Actual Codes
-5. javadoc
+### database
+- Stores data for our application, such as transaction and login information
 
-add more here...
+### javadoc
+- Contains the API Documentation of our source code
+
+### src
+- Contains the Source Code for our application
+
+### Assignment.pdf
+- Our Assignment instructions
+
+### Assignment FAQ.pdf
+- Clarified and extra Assignment instructions
+
+### Report.pdf
+- Contains our Assignment Report, UML Class Diagram, Test Cases and Demo Video
+
+### UML Diagram.png
+- Contains a sharper version of the UML Class Diagram of our assignment
+
+## How to use our Application
+- Download our src folder into your IDE to run it from fresh from MOBLIMA.java
+- Alternatively, you may include the database folder in your IDE for pre-loaded Admin Credentials, Movie Listings, Movie Sessions, Holidays, Transactions and Ratings
+- Username: admin , Password: password
