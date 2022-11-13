@@ -1,5 +1,5 @@
 # SC2002 Object-Oriented Design and Programming
-NTU Computer Science Year 2 Group Assignment AY21/22
+NTU Computer Science Year 2 Group Assignment AY21/22 Semester 1
 
 ## Movie Booking and Listing Management Application (MOBLIMA)
 - A console-based application based off a real-life Movie Website (Cathay Cineplexes) to replicate its functionality
