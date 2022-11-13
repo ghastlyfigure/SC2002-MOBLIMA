@@ -59,18 +59,25 @@ public class TicketCostManager {
 //        return totalCost;
 //    }
 
+    // this function checks whether is holiday && || weekend
+    // based on input "costType" in this function can be student, senior, or normal ONLY
     public double calculateCost(Cinema cinema, MovieTimeslot slot, TicketCostType costType){
 
-        double cost = getCost(cinema.getCinemaType()) + getCost(slot.getMovie().getType());
+        //cost = cinematype + movietype + persontype
+        //all we need is holiday + weekend
+        double cost = getCost(cinema.getCinemaType()) + getCost(slot.getMovie().getType()) + getCost(costType);
+        boolean holiday = holidayManager.isHoliday(slot.getTimeslot().toLocalDate());
+        boolean weekend = slot.isWeekend();
 
-        if(slot.isWeekend())
-            cost += 2.0;
-
-        if(holidayManager.isHoliday(slot.getTimeslot().toLocalDate())){
+        if(holiday == true && weekend == true){
             return cost + getCost(TicketCostType.Holiday);
-        }
-        else{
-            return getCost(costType) + cost;
+        } else {
+            if(weekend == true){
+                return cost + getCost(TicketCostType.Weekend);
+            }
+            if(holiday == true){
+                return cost + getCost(TicketCostType.Holiday);
+            }
         }
     }
 }

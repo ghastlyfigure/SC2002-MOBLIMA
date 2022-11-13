@@ -44,8 +44,8 @@ public class InputManager {
     public static double getDouble(){
         double input = -1;
         boolean valid = false;
-        while(valid == false) {
-            if(sc.hasNextInt() == true){
+        while(!valid) {
+            if(sc.hasNextDouble()){
                 input = sc.nextDouble();
                 valid = true;
             }

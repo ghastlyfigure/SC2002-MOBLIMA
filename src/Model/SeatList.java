@@ -18,18 +18,28 @@ public class SeatList implements Serializable{
 		}
 	}
 	
-	public void printLayout( ) {
-		int i, j;
+	public void printSeatLayout() {
 		int split = column / 2;
 		System.out.println("Seating List of Cinema:");
 		System.out.println("X = occupied, O = not occupied.");
 		System.out.println();
 		// TODO: implement print according to row, col
-		System.out.println("==============================================");
-		System.out.println("SCREEN");
-		System.out.println("==============================================");
-		for (i = 0; i < row; i++) {
-			for(j = 0; j < column; j++) {
+		for (int i=0; i<column; i++) {
+			System.out.print("==");
+		}
+		System.out.println();
+		for (int i=0; i<(column/2)-1; i++) {
+			System.out.print("  ");
+		}
+		System.out.print("SCREEN");
+		System.out.println();
+		for (int i=0; i<column; i++) {
+			System.out.print("==");
+		}
+		System.out.println();
+
+		for (int i=0; i<row; i++) {
+			for(int j=0; j<column; j++) {
 				if(j == column / 2 - 1) {
 					System.out.print(" ");
 				}
@@ -42,10 +52,20 @@ public class SeatList implements Serializable{
 			}
 			System.out.print("\n");
 		}
-		// implement print according to row, col
-		System.out.println("==============================================");
-		System.out.println("ENTRANCE");
-		System.out.println("==============================================");
+
+		for (int i=0; i<column; i++) {
+			System.out.print("==");
+		}
+		System.out.println();
+		for (int i=0; i<(column/2)-2; i++) {
+			System.out.print("  ");
+		}
+		System.out.print("ENTRANCE");
+		System.out.println();
+		for (int i=0; i<column; i++) {
+			System.out.print("==");
+		}
+		System.out.println();
 	}
 	
 	void setRow(int row) {

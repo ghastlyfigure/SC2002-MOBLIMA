@@ -1,9 +1,8 @@
 package Controller;
 
-import java.io.*;
-
 import Model.Admin;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class LoginManager {

@@ -81,34 +81,34 @@ public class MovieListingUI {
 		System.out.println("\tPlease select the Movie Rating: ");
 		rating = InputManager.getString();
 
-		System.out.println("Please enter the duration of the movie: ");
-		duration = InputManager.getInt();
+		System.out.println("Please enter the Duration of the Movie: ");
+		duration = InputManager.getDouble();
 
-		System.out.println("Please enter the release date of the movie (DD/MM/YYYY): ");
+		System.out.println("Please enter the Release Date of the Movie (DD/MM/YYYY): ");
 		LocalDate startDate = InputManager.getDate();
 
-		System.out.println("Please enter the end date of the movie (DD/MM/YYYY): ");
+		System.out.println("Please enter the End Date of the Movie (DD/MM/YYYY): ");
 		LocalDate endDate = InputManager.getDate();
 
 		if (endDate.isBefore(startDate)) {
-			System.out.println("End Date cannot be earlier than Start Date!\n" +
-							   "Returning back to main menu");
+			System.out.println("End Date cannot be earlier than Start Date!");
+			System.out.println("Returning back to Main Menu...");
 			return;
 		}
 
-		System.out.println("Please enter the name of the movie director: ");
+		System.out.println("Please enter the Name of the Movie Director: ");
 		director = InputManager.getString();
 
-		System.out.println("Please enter the number of casts (at least 2): ");
+		System.out.println("Please enter the Number of Casts (at least 2): ");
 		castNumber = InputManager.getInt();
 		if (castNumber < 2) {
-			System.out.println("There must be at least 2 cast members!\n" +
-							   "Returning to menu");
+			System.out.println("There must be at least 2 Cast Members!\n" +
+							   "Returning to menu...");
 			return;
 		}
 		ArrayList<String> castList = new ArrayList<String>();
 		for (i = 0; i < castNumber; i++) {
-			System.out.println("Enter name of cast " + (i+1) + ": ");
+			System.out.println("Enter name of Cast " + (i+1) + ": ");
 			castList.add(InputManager.getString());
 		}
 
@@ -125,7 +125,7 @@ public class MovieListingUI {
 		System.out.println("\nMovie List: ");
 
 		if(searchMovie.displayAll()){
-			System.out.printf("Please select the movie to be updated by entering the correct Model.Movie ID: ");
+			System.out.printf("Please select the Movie to be updated by entering the Movie ID: ");
 			int ID = InputManager.getInt();
 			if (movieManager.readMovieID(ID) == null) {
 				System.out.println("\nInvalid choice!\n" +
@@ -137,7 +137,7 @@ public class MovieListingUI {
 								"\t1. Movie Title\n" +
 								"\t2. Movie Type\n" +
 								"\t3. Movie Synopsis\n" +
-								"\t4. Movie Model.Rating\n" +
+								"\t4. Movie Rating\n" +
 								"\t5. Movie Duration \n" +
 								"\t6. Movie Start Date\n" +
 								"\t7. Movie End Date\n" +
@@ -221,7 +221,7 @@ public class MovieListingUI {
 					movieManager.updateMovie(7, ID, endDate);
 					break;
 				case 8:
-					System.out.println("\nPlease enter the name of the movie director: ");
+					System.out.println("\nPlease enter the Name of the Movie Director: ");
 					String director = InputManager.getString();
 					movieManager.updateMovie(8, ID, director);
 					break;
@@ -229,7 +229,7 @@ public class MovieListingUI {
 				case 9:														
 					int castNumber, i;
 					ArrayList<String> castList = new ArrayList<String>();
-					System.out.println("Please enter the number of casts (at least 2): ): ");
+					System.out.println("Please Enter the Number of Casts (at least 2): ): ");
 					castNumber = InputManager.getInt();
 					if (castNumber < 2) {
 						System.out.println("There must be at least 2 cast members!\n" +

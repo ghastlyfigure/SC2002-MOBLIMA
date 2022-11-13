@@ -58,9 +58,9 @@ public class SearchMovieUI {
         choice = InputManager.getInt();
         switch(choice){
             case 1:
-                type = "TwoD";
+                type = "TwoD";  break;
             case 2:
-                type = "ThreeD";
+                type = "ThreeD"; break;
             case 3:
                 type = "Blockbuster";
         }

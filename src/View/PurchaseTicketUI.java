@@ -4,6 +4,7 @@ import Controller.*;
 import Model.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -86,6 +87,7 @@ public class PurchaseTicketUI {
                 availableCinemas = listAvailableSlots(cineplexes.get(choice - 1).getName());
                 if(availableCinemas.size() == 0){
                     System.out.println("No Currently Available Slots for this Cineplex. Choose another Cineplex.");
+                    System.out.println("========================================================================");
                     for(int i = 0; i < cineplexes.size(); i++){
                         System.out.println((i+1) + ". " + cineplexes.get(i).getName());
                     }
@@ -112,7 +114,8 @@ public class PurchaseTicketUI {
         ArrayList<Movie> movies = movieManager.readMovie();
         for (Movie movie : movies) {
             if (movie.getMovieStatus().equals(MovieStatus.Coming_Soon) || movie.getMovieStatus().equals(MovieStatus.End_of_Showing)) {
-                System.out.println("Movie no longer available for booking as it is no longer showing!");
+                System.out.println("Movie no longer available for booking as it is No Longer Showing!");
+                System.out.println();
                 return availableCinemas;
             }
         }
@@ -166,7 +169,6 @@ public class PurchaseTicketUI {
                 }
             }
         }
-        
     }
 
     public void showTicketCosts(){
@@ -220,7 +222,7 @@ public class PurchaseTicketUI {
         int ticketsToBeBooked = tickets;
         int c = 1;
         boolean seatBooked = false;
-        seatList.printLayout();
+        seatList.printSeatLayout();
 
         do{
             System.out.println("Choose Seat ID for Ticket " + c);

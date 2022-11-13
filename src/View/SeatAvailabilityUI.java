@@ -104,7 +104,7 @@ public class SeatAvailabilityUI {
         else{
             System.out.println("Seat Layout: ");
             seatList = timeSlot.getSeatList();
-            seatList.printLayout();
+            seatList.printSeatLayout();
         }
 
         boolean inLoop = true;

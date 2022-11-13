@@ -168,37 +168,40 @@ public class MovieSessionUI {
 			return;
 		}
 		
-		System.out.println("Option List: \n" +
-						   "1. Movie\n" +
-						   "2. Date & Time\n" +
-						   "Please select an option: ");
+		System.out.println("Option List: ");
+		System.out.println("\t1. Movie");
+		System.out.println("\t2. Date and Time");
+		System.out.println("\tPlease select an Option: ");
 		
 		int choice = InputManager.getInt();
 
 		switch(choice) {
-		case 1:
-			System.out.println("\nMovie List: \n");
-			if(!searchMovie.displayAll()) {
-				System.out.println("Movie does not exist!\n"+
-						   "Returning back to main menu");
-				return;
-			}
-			System.out.println("Please enter new Movie ID: ");
-			int movieID = InputManager.getInt();
-			if (movieManager.readMovieID(movieID) == null) {
-				System.out.println("Movie does not exist!\n"+
-								   "Returning back to main menu");
-				return;
-			}
-			timeslotManager.updateTimeslotByID(MovieTimeSlotManager.movie, timeslotID, movieManager.readMovieID(movieID));
-			break;
-			
-		case 2:
-			System.out.println("Please enter new date & time: ");
-			LocalDateTime timeslotDate = InputManager.getDateTime();
-			timeslotManager.updateTimeslotByID(MovieTimeSlotManager.timeslot, timeslotID, timeslotDate);
-			break;
-			
+			case 1:
+				System.out.println("\nMovie List: \n");
+				if (!searchMovie.displayAll()) {
+					System.out.println("Movie does not exist!\n" +
+							"Returning back to main menu");
+					return;
+				}
+				System.out.println("Please enter new Movie ID: ");
+				int movieID = InputManager.getInt();
+				if (movieManager.readMovieID(movieID) == null) {
+					System.out.println("Movie does not exist!\n" +
+							"Returning back to Main Menu...");
+					return;
+				}
+				timeslotManager.updateTimeslotByID(MovieTimeSlotManager.movie, timeslotID, movieManager.readMovieID(movieID));
+				break;
+
+			case 2:
+				System.out.println("Please enter new date & time: ");
+				LocalDateTime timeslotDate = InputManager.getDateTime();
+				timeslotManager.updateTimeslotByID(MovieTimeSlotManager.timeslot, timeslotID, timeslotDate);
+				break;
+			default:
+				System.out.println("Invalid Option Selected!");
+				System.out.println("Returning to previous Menu...");
+				break;
 		}
 		System.out.println("Session " + timeslotID + " successfully updated!");
 	}

@@ -19,8 +19,8 @@ public class MovieInfoUI {
 
     public void main(){
         if(!searchMovieUI.displayAll()){
-            System.out.println("Movie List is empty!\n" +
-                               "Returning back to main menu");
+            System.out.println("Movie List is Empty!\n" +
+                               "Returning back to Main Menu...");
             return;
         }
         System.out.println("Please enter the ID of the movie to view more details\n" +
