@@ -12,3 +12,6 @@ This directory contains all the source code for our group project, written in Ja
 
 ### Controller
 - Contains the Manager classes, which act as an interface between Model and View, processing each other's requests and updating the database accordingly
+
+## MOBLIMA.java
+Contains the Main method to start the application
