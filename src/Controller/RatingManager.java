@@ -7,7 +7,15 @@ import Verify.RatingVerifier;
 import java.util.ArrayList;
 
 public class RatingManager {
+
+    /**
+     * The Cineplex Manager to be referenced by this manager, Cinema Manager
+     */
     private MovieManager movieManager;
+
+    /**
+     * The file name of the database to be accessed by this manager
+     */
     public String filename;
 
     public RatingManager(){

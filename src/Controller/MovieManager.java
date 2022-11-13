@@ -15,6 +15,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class MovieManager {
+
+    /**
+     * Declaring constants to be used
+     * Ensures better readibility
+     */
 	public final static int ID = 0;
     public final static int name = 1;
     public final static int type = 2;
@@ -26,7 +31,10 @@ public class MovieManager {
     public final static int director = 8;
     public final static int cast = 9;
     public final static int review = 10;
-    
+
+    /**
+     * File name of database file to access
+     */
     public final static String filename = "database/movies.txt";
     public MovieTimeSlotManager timeslotManager;
 
@@ -36,8 +44,23 @@ public class MovieManager {
 
     public MovieManager(MovieTimeSlotManager timeslotManager) {
         this.timeslotManager = timeslotManager;
-    } 
-	
+    }
+
+    /**
+     * Create a new movie and add it into the database file after validating the attributes
+     * If attributes are invalid, do nothing
+     * If database file exists, read existing records, append a new movie object, and save the file
+     * If database file does not exist, write movie object to a new file and save
+     * @param name              Title of movie
+     * @param type              Type of movie
+     * @param synopsis          Synopsis of movie
+     * @param rating            Rating of movie
+     * @param duration          Duration of movie
+     * @param startDate         Release date of movie
+     * @param endDate           End date of movie
+     * @param director          Director of movie
+     * @param castList          List of cast in movie
+     */
 	public void createMovie(String name, MovieType type, String synopsis,
                             String rating, double duration, LocalDate startDate,
                             LocalDate endDate, String director, ArrayList<String> castList) {
@@ -60,8 +83,12 @@ public class MovieManager {
                 //
             }
 		}
-    } 
-	
+    }
+
+    /**
+     * Return the ID of the last movie in the database
+     * @return int      ID of last Movie in the database
+     */
 	public int getLastID(){
 		int lastId = -1;
         int movieID;
@@ -73,7 +100,11 @@ public class MovieManager {
         }
         return lastId;
     }
-	
+
+    /**
+     * Read every Movie in the database file
+     * @return Movie    Return list of Movies if found, else empty list
+     */
 	public ArrayList<Movie> readMovie() {
         try {  	
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
@@ -85,7 +116,13 @@ public class MovieManager {
         } 
         return new ArrayList<Movie>();
     }
-	
+
+    /**
+     * Read every Movie in database file using value of a given attribute
+     * @param choice          Name of cineplex to find
+     * @param attribute       Value of given attribute to search for
+     * @return Movie          Return list of Movies if found, else null object
+     */
 	public ArrayList<Movie> readMovieDetail(int choice, Object attribute) {
         int i;
         ArrayList<Movie> movieListing = readMovie();
@@ -120,7 +157,12 @@ public class MovieManager {
         }
         return newMovieListing;
     }
-	
+
+    /**
+     * Read Movie in database file using ID passed in
+     * @param ID            ID of cineplex to find
+     * @return movie        Return Cineplex if found, else null object
+     */
 	public Movie readMovieID(int ID) {
 		int i;
         ArrayList<Movie> movieListing = readMovie();
@@ -131,7 +173,13 @@ public class MovieManager {
         }
         return null;
     }
-	
+
+    /**
+     * Update a Movie's attribute in database file using given movie ID
+     * @param choice        Attribute of movie to be updated
+     * @param movieID       ID of Movie to find
+     * @param newValue      New value of Movie's attribute
+     */
 	public void updateMovie(int choice, int movieID, Object newValue) {
         ArrayList<Movie> movieListing = readMovie();
         ArrayList<Movie> newMovieListing = new ArrayList<Movie>();
@@ -185,7 +233,12 @@ public class MovieManager {
 
         updateFile(filename, newMovieListing);
     }
-	
+
+    /**
+     * Overwrite database file with new data of list of Movie
+     * @param filename      Filename to check
+     * @param movieList          New ArrayList of Movies to be written to the file
+     */
 	public void updateFile(String filename, ArrayList<Movie> movieList){
         File movieFile = new File(filename);
         if (movieFile.exists()) 
@@ -199,7 +252,11 @@ public class MovieManager {
         	//
         }
     }
-	
+
+    /**
+     * Delete a Movie in the database file corresponding to the ID attribute passed in
+     * @param ID  ID of Movie to delete
+     */
 	public void deleteMovie(int ID) {
         ArrayList<Movie> movieListing = readMovie();
         ArrayList<Movie> updatedListing = new ArrayList<Movie>();

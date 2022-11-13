@@ -7,9 +7,20 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
 
+/**
+ * Class is used for user input.
+ * Implemented to avoid multiple declaration of Scanner, which may lead to problems.
+ * Set of static methods which return desired and validated user's input.
+ */
 public class InputManager {
+    /** Attribute scanner defined once */
     private static Scanner sc = new Scanner(System.in);
 
+    /**
+     * Receives string from user and ensures that it is not empty
+     * Ask for input until it is correct.
+     * @return Non-empty String inserted by user
+     */
     public static String getString(){
         String input = "";
         boolean valid = false;
@@ -25,6 +36,11 @@ public class InputManager {
         return input;
     }
 
+    /**
+     * Receives and verifies integer from user
+     * Ask for input until it is correct
+     * @return Valid integer
+     */
     public static int getInt(){
         int input = -1;
         boolean valid = false;
@@ -41,6 +57,11 @@ public class InputManager {
         return input;
     }
 
+    /**
+     * Receives a double between 0
+     * Ask for input until it is correct.
+     * @return Valid Double
+     */
     public static double getDouble(){
         double input = -1;
         boolean valid = false;
@@ -57,6 +78,12 @@ public class InputManager {
         return input;
     }
 
+    /**
+     * Receives string from user which matches default email pattern
+     * Ensures that string received is not empty
+     * Ask for input until correct.
+     * @return Non-empty String that matches email pattern
+     */
     public static String getEmail(){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -77,6 +104,11 @@ public class InputManager {
         return input;
     }
 
+    /**
+     * Receive date from user which matches date pattern
+     * Ask for String input until it is correct
+     * @return LocalDate based on user's input
+     */
     public static LocalDate getDate() {
         LocalDate date = null;
         String input;
@@ -94,6 +126,11 @@ public class InputManager {
         return date;
     }
 
+    /**
+     * Receive date and time from user which matches date time pattern
+     * Ask for String input until it is correct
+     * @return LocalDateTime based on user's input
+     */
     public static LocalDateTime getDateTime(){
         LocalDateTime dateTime = null;
         String input;
@@ -111,6 +148,11 @@ public class InputManager {
         return dateTime;
     }
 
+    /**
+     * Receives mobile number with valid Singapore pattern (8 digits, starts with 8 or 9)
+     * Ask for input until it is correct.
+     * @return Non-empty String that matches the pattern of mobile number in Singapore
+     */
     public static String getMobileNumber(){
 
         String mobileNumberFormat = "\\d{8}";
