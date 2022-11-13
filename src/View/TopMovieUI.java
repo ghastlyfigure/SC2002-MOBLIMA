@@ -40,7 +40,7 @@ public class TopMovieUI {
         choice = InputManager.getInt();
         switch (choice) {
             case 1 -> listBySales();
-            case 2 -> listByReviews();
+            case 2 -> listByRatings();
             case 3 -> System.out.println("Returning back to main menu");
             default -> {
                 System.out.println("Invalid input!");
@@ -55,8 +55,7 @@ public class TopMovieUI {
         System.out.println("Movie Rating: " + movie.getAverageScore());
     }
 
-    // TODO: Fix Top5 ListByReviews
-    public void listByReviews() {
+    public void listByRatings() {
         int i;
         ArrayList<Movie> movieList = movieManager.readMovie();
         movieList.sort(new SortByRating());
@@ -79,7 +78,6 @@ public class TopMovieUI {
         details.main();
     }
 
-    // TODO: Fix top5 listBySales
     public void listBySales() {
         int qty = 0;
         int i;

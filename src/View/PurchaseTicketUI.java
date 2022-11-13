@@ -200,7 +200,7 @@ public class PurchaseTicketUI {
         // TODO: change to do while loop
         int choice = 0;
         while(choice == 0 || choice == 1){
-            System.out.println("Do you want to proceed? Yes(1)/No(0): ");
+            System.out.println("Do you want to proceed? Yes(1) / No(0): ");
             choice = InputManager.getInt();
             if(choice == 1){
                 bookSeats();
@@ -211,7 +211,7 @@ public class PurchaseTicketUI {
                 return;
             }
             else{
-                System.out.println("Invalid choice input, enter 1 for Yes and 0 for No");
+                System.out.println("Invalid choice input, Input 1 for Yes or 0 for No");
             }
         }
     }

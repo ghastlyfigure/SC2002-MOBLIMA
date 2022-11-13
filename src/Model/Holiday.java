@@ -12,7 +12,7 @@ public class Holiday implements Serializable{
         this.dateOfHoliday = dateOfHoliday;
     }
 
-    // TODO: setdateofholiday
+    // TODO: not sure if we need this method
     public void setDateOfHoliday(LocalDate dateOfHoliday){
         this.dateOfHoliday = dateOfHoliday;
     }

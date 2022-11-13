@@ -172,7 +172,6 @@ public class MainMenuUI {
 					seatAvailabilityUI.main();
 				}
 				case 4 -> {
-					// TODO: debug Purchase Ticket UI
 					PurchaseTicketUI purchaseTicketUI = new PurchaseTicketUI();
 					purchaseTicketUI.main();
 				}

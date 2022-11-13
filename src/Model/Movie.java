@@ -213,7 +213,7 @@ public class Movie implements Serializable{
         if (currentTime.isAfter(endDate))
             return MovieStatus.End_of_Showing;
         else {
-			// TODO: what is this bro can explain? the logic seems to be off
+			// TODO: Movie Status calculation
             time = Duration.between(currentTime.atStartOfDay(),
             						startDate.atStartOfDay()).toDays();
             if (time > 7) {
@@ -221,7 +221,6 @@ public class Movie implements Serializable{
             } else if (time > 0) {
                 return MovieStatus.Preview;
             } else {
-				 // it doesnt even reach here
                 return MovieStatus.Now_Showing;
             }
         }
