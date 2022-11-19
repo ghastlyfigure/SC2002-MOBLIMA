@@ -7,28 +7,28 @@ NTU Computer Science Year 2 Group Assignment AY22/23 Semester 1
 
 ## Index
 
-### database
+### `database`
 - Stores data for our application, such as transaction and login information
 
-### javadoc
+### `javadoc`
 - Contains the API Documentation of our source code
 
-### src
+### `src`
 - Contains the Source Code for our application
 
-### Assignment.pdf
+### `Assignment.pdf`
 - Our Assignment instructions
 
-### Assignment FAQ.pdf
+### `Assignment FAQ.pdf`
 - Clarified and extra Assignment instructions
 
-### Report.pdf
+### `Report.pdf`
 - Contains our Assignment Report, UML Class Diagram, Test Cases and Demo Video
 
-### UML Diagram.png
+### `UML Diagram.png`
 - Contains a sharper version of the UML Class Diagram of our assignment
 
 ## How to use our Application
-- Download our src folder into your IDE to run it fresh from MOBLIMA.java
-- Alternatively, you may include the database folder in your IDE alongside our src folder for pre-loaded Admin Credentials, Movie Listings, Movie Sessions, Holidays, Transactions and Ratings
+- Download our src folder into your IDE to run it fresh from `MOBLIMA.java`
+- Alternatively, you may include the database folder in your IDE alongside our `src` folder for pre-loaded Admin Credentials, Movie Listings, Movie Sessions, Holidays, Transactions and Ratings
 - Username: admin , Password: password (if using database)
