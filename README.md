@@ -8,13 +8,13 @@ NTU Computer Science Year 2 Group Assignment AY22/23 Semester 1
 ## Index
 
 ### `database`
-- Stores data for our application, such as transaction and login information
+- Directory that stores data for our application, such as transaction and login information
 
 ### `javadoc`
-- Contains the API Documentation of our source code
+- Directory containing the API Documentation of our source code
 
 ### `src`
-- Contains the Source Code for our application
+- Directory containing the Source Code for our application
 
 ### `Assignment.pdf`
 - Our Assignment instructions
@@ -30,5 +30,5 @@ NTU Computer Science Year 2 Group Assignment AY22/23 Semester 1
 
 ## How to use our Application
 - Download our src folder into your IDE to run it fresh from `MOBLIMA.java`
-- Alternatively, you may include the database folder in your IDE alongside our `src` folder for pre-loaded Admin Credentials, Movie Listings, Movie Sessions, Holidays, Transactions and Ratings
+- Alternatively, you may include the `database` directory in your IDE alongside our `src` directory for pre-loaded Admin Credentials, Movie Listings, Movie Sessions, Holidays, Transactions and Ratings
 - Username: admin , Password: password (if using database)
